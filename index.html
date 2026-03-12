@@ -6,35 +6,22 @@
 <title>Steamsito Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
-/* ── RESET ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-
-/* ── VARIABLES ── */
 :root{
-  --bg:#0d0118;
-  --bg-card:#170736;
-  --accent:#00d4ff;
-  --purple:#7b2fff;
-  --green:#4caf50;
-  --dim:#9b8bb5;
+  --bg:#0d0118;--bg-card:#170736;--accent:#00d4ff;
+  --purple:#7b2fff;--green:#4caf50;--dim:#9b8bb5;
   --border:rgba(255,255,255,0.08);
 }
-
 body{
   font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  background:linear-gradient(180deg,#1a0842 0%,#0d0118 100%);
-  background-attachment:fixed;
-  color:#fff;
-  min-height:100vh;
+  background:linear-gradient(180deg,#341281 0%,#1a0842 100%);
+  background-attachment:fixed;color:#fff;min-height:100vh;
 }
-
-/* ── NAVBAR ── */
+/* NAVBAR */
 .navbar{
-  background:rgba(72,18,156,0.95);
-  backdrop-filter:blur(10px);
-  width:100%;padding:0;
-  position:sticky;top:0;z-index:1000;
+  background:rgba(72,18,156,0.95);backdrop-filter:blur(10px);
+  width:100%;position:sticky;top:0;z-index:1000;
   box-shadow:0 4px 15px rgba(0,0,0,0.4);
   border-bottom:1px solid rgba(123,47,255,0.3);
 }
@@ -43,30 +30,21 @@ body{
   display:flex;align-items:center;justify-content:space-between;
   padding:12px 24px;gap:20px;
 }
-.navbar-logo{
-  display:flex;align-items:center;gap:12px;
-  text-decoration:none;color:#fff;flex-shrink:0;
-}
-.navbar-logo img{height:70px;width:auto;display:block}
+.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;flex-shrink:0}
+.navbar-logo img{height:80px;width:auto;display:block}
 .navbar-logo span{
-  font-family:'Press Start 2P',cursive;font-size:20px;
+  font-family:'Press Start 2P',cursive;font-size:22px;
   background:linear-gradient(120deg,#fff 40%,var(--accent));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-
-/* ── SEARCH ── */
 .search-container{
   flex:1;max-width:520px;height:44px;
   display:flex;align-items:center;
-  background:rgba(49,98,130,0.3);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:8px;
+  background:rgba(49,98,130,0.35);
+  border:1px solid rgba(255,255,255,0.15);border-radius:8px;
   transition:border-color .2s,box-shadow .2s;
 }
-.search-container:focus-within{
-  border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(0,212,255,0.15);
-}
+.search-container:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,212,255,0.15)}
 .search-icon-btn{
   background:none;border:none;cursor:pointer;
   padding:0 13px;color:rgba(255,255,255,0.6);
@@ -78,37 +56,30 @@ body{
   background:none;border:none;outline:none;
   color:#fff;font-size:14px;width:100%;padding-right:12px;
 }
-.main-search-input::placeholder{color:rgba(255,255,255,0.45)}
-
-/* ── NAV ICONS ── */
+.main-search-input::placeholder{color:rgba(255,255,255,0.4)}
 .nav-icons{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .nav-btn{
-  background:none;border:none;cursor:pointer;
-  padding:8px;border-radius:8px;color:rgba(255,255,255,0.6);
-  display:flex;align-items:center;justify-content:center;
+  background:none;border:none;cursor:pointer;padding:8px;border-radius:8px;
+  color:rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;
   position:relative;transition:background .2s,color .2s;
 }
 .nav-btn:hover{background:rgba(255,255,255,0.08);color:var(--accent)}
 .nav-btn svg{width:30px;height:30px;fill:currentColor;display:block}
 .cart-counter{
   position:absolute;top:2px;right:2px;
-  background:#e53935;color:#fff;
-  font-size:10px;font-weight:700;border-radius:50%;
-  width:18px;height:18px;
+  background:#e53935;color:#fff;font-size:10px;font-weight:700;
+  border-radius:50%;width:18px;height:18px;
   display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:scale(0);
-  transition:opacity .25s,transform .25s;
+  opacity:0;transform:scale(0);transition:opacity .25s,transform .25s;
 }
 .cart-counter.active{opacity:1;transform:scale(1)}
-
-/* ── HERO ── */
+/* HERO */
 .hero-banner{max-width:1300px;margin:32px auto 0;padding:0 24px}
 .hero-inner{
   background:linear-gradient(135deg,rgba(123,47,255,.25) 0%,rgba(0,212,255,.08) 100%);
   border:1px solid rgba(123,47,255,.35);border-radius:14px;
-  padding:28px 36px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  position:relative;overflow:hidden;
+  padding:28px 36px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;position:relative;overflow:hidden;
 }
 .hero-inner::before{
   content:'';position:absolute;inset:0;
@@ -116,10 +87,9 @@ body{
   pointer-events:none;
 }
 .hero-text h1{
-  font-family:'Press Start 2P',cursive;font-size:14px;line-height:1.9;
+  font-family:'Press Start 2P',cursive;font-size:13px;line-height:1.9;
   background:linear-gradient(90deg,#fff 50%,var(--accent));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:10px;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;
 }
 .hero-text p{font-size:13px;color:var(--dim);line-height:1.7}
 .hero-badge{
@@ -129,8 +99,7 @@ body{
   white-space:nowrap;flex-shrink:0;line-height:2.4;
   box-shadow:0 0 24px rgba(123,47,255,.55);
 }
-
-/* ── SECTION HEADER ── */
+/* SECTION */
 .section-header{
   max-width:1300px;margin:30px auto 18px;padding:0 24px;
   display:flex;align-items:center;gap:12px;
@@ -143,41 +112,31 @@ body{
 @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.55)}}
 .section-header h2{font-family:'Press Start 2P',cursive;font-size:11px;white-space:nowrap}
 .section-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(123,47,255,.55),transparent)}
-
 .results-info{
   max-width:1300px;margin:0 auto 14px;padding:0 24px;
   font-size:13px;color:var(--dim);display:none;
 }
 .results-info span{color:var(--accent);font-weight:600}
-
-/* ── STORE ── */
+/* STORE */
 .store-container{max-width:1300px;margin:0 auto;padding:0 24px}
-
-/* ── GRID ── */
+/* GRID */
 .game-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-  gap:20px;min-height:300px;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:22px;min-height:300px;
 }
-
-/* ── CARD ── */
+/* CARD */
 .game-card{
-  background:var(--bg-card);
-  border-radius:6px;overflow:hidden;
-  position:relative;
-  border:1px solid var(--border);
-  cursor:pointer;
+  background:var(--bg-card);border-radius:4px;overflow:hidden;
+  position:relative;border:1px solid var(--border);cursor:pointer;
   animation:cardIn .3s ease both;
-  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
 }
 .game-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--accent);
-  box-shadow:0 12px 32px rgba(0,212,255,.22);
+  transform:translateY(-6px);border-color:var(--accent);
+  box-shadow:0 0 22px rgba(0,212,255,.3);
 }
 @keyframes cardIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-/* Imagen 3:4 */
 .card-img-wrap{
   position:relative;width:100%;padding-top:133%;
   background:#0b021c;overflow:hidden;
@@ -187,136 +146,111 @@ body{
   object-fit:cover;object-position:center top;
   transition:transform .4s ease;
 }
-.game-card:hover .card-img-wrap img{transform:scale(1.06)}
-
-/* fallback placeholder */
+.game-card:hover .card-img-wrap img{transform:scale(1.05)}
 .img-fallback{
-  position:absolute;inset:0;
-  display:none;
+  position:absolute;inset:0;display:none;
   flex-direction:column;align-items:center;justify-content:center;
   background:linear-gradient(135deg,#1a0336,#0d0118);
-  color:var(--dim);font-size:11px;text-align:center;padding:12px;gap:8px;
+  color:var(--dim);font-size:11px;text-align:center;padding:14px;gap:10px;line-height:1.5;
 }
-.img-fallback svg{width:44px;height:44px;opacity:.35;fill:var(--dim)}
-
+.img-fallback svg{width:48px;height:48px;opacity:.3;fill:var(--dim)}
 .card-platform{
   position:absolute;top:8px;left:8px;
   background:rgba(0,0,0,.72);backdrop-filter:blur(4px);
   color:#fff;font-size:10px;padding:3px 8px;
-  border-radius:4px;display:flex;align-items:center;gap:5px;
-  pointer-events:none;
+  border-radius:4px;display:flex;align-items:center;gap:5px;pointer-events:none;
 }
 .card-platform svg{width:10px;height:10px;fill:currentColor}
-
-/* SLIDE-UP info */
 .info-wrapper{
   position:absolute;bottom:0;left:0;right:0;
   background:linear-gradient(to top,rgba(13,1,24,.98) 80%,transparent);
-  padding:14px;
-  transform:translateY(100%);
-  transition:transform .3s cubic-bezier(.25,.46,.45,.94);
-  z-index:3;
+  padding:14px;transform:translateY(100%);
+  transition:transform .3s ease-in-out;z-index:3;
 }
 .game-card:hover .info-wrapper{transform:translateY(0)}
 .info-wrapper h3{
-  font-size:12px;font-weight:600;line-height:1.45;margin-bottom:10px;
-  display:-webkit-box;-webkit-line-clamp:2;
-  -webkit-box-orient:vertical;overflow:hidden;
+  font-size:13px;font-weight:600;line-height:1.45;margin-bottom:10px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
-.price-label{font-size:10px;color:var(--dim)}
-
-.card-actions{display:flex;flex-direction:column;gap:6px}
+.price-label{font-size:10px;color:var(--accent)}
+.card-actions{display:flex;flex-direction:column;gap:8px}
 .btn{
-  width:100%;padding:9px 0;border-radius:4px;
-  font-family:'Segoe UI',sans-serif;font-size:12px;font-weight:700;
+  width:100%;padding:10px 0;border-radius:2px;
+  font-family:'Segoe UI',sans-serif;font-size:13px;font-weight:600;
   cursor:pointer;text-align:center;border:none;
   transition:background .2s,box-shadow .2s,transform .1s;
 }
 .btn:active{transform:scale(.97)}
 .btn-cart{background:var(--accent);color:#000}
 .btn-cart:hover{background:#55e2ff;box-shadow:0 0 14px rgba(0,212,255,.5)}
-.btn-detail{
-  background:transparent;color:#fff;
-  border:1px solid rgba(255,255,255,.2)!important;
-}
+.btn-detail{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25)!important}
 .btn-detail:hover{background:rgba(255,255,255,.1)}
-
-/* ── NO RESULTS ── */
-.no-results{
-  grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--dim);
-}
+/* NO RESULTS */
+.no-results{grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--dim)}
 .no-results .nr-icon{font-size:52px;margin-bottom:16px}
 .no-results h3{font-family:'Press Start 2P',cursive;font-size:10px;color:#fff;margin-bottom:10px}
-
-/* ── PAGINATION ── */
+/* PAGINATION */
 .pagination-container{
   display:flex;justify-content:center;align-items:center;
-  gap:6px;margin:48px 0 36px;flex-wrap:wrap;
+  gap:8px;margin:50px 0;flex-wrap:wrap;
 }
 .page-btn{
-  min-width:42px;height:42px;padding:0 10px;
+  min-width:42px;height:42px;padding:0 12px;
   background:var(--bg-card);border:1px solid rgba(255,255,255,.15);
   color:#fff;border-radius:4px;cursor:pointer;
-  font-size:14px;font-weight:600;
+  font-family:'Segoe UI',Roboto,sans-serif;font-size:14px;font-weight:600;
   display:flex;align-items:center;justify-content:center;
-  transition:all .2s;
+  transition:background-color .2s,border-color .2s,color .2s;
 }
 .page-btn:hover:not(.active):not([disabled]){
-  border-color:var(--accent);color:var(--accent);
-  background:rgba(0,212,255,.08);
+  border-color:var(--accent);color:var(--accent);background:rgba(0,212,255,.1);
 }
 .page-btn.active{
-  background:var(--accent);color:#000;
-  border-color:var(--accent);pointer-events:none;font-weight:700;
+  background:var(--accent);color:#000;border-color:var(--accent);
+  pointer-events:none;font-weight:700;
 }
 .page-btn[disabled]{opacity:.3;cursor:not-allowed}
 .page-ellipsis{color:var(--dim);padding:0 4px;font-size:18px;display:flex;align-items:center}
-
-/* ── DIRECTORY ── */
+/* DIRECTORY */
 .dir-section{
-  background:rgba(0,0,0,.35);border:1px solid var(--border);
-  border-radius:10px;padding:28px;margin:16px 0 60px;
+  background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;padding:30px;margin:16px 0 60px;
 }
 .dir-section h2{
-  font-size:16px;font-weight:600;color:var(--accent);
-  margin-bottom:20px;padding-bottom:12px;
-  border-bottom:1px solid rgba(0,212,255,.18);
+  font-family:'Segoe UI',sans-serif;font-size:18px;font-weight:600;color:var(--accent);
+  margin-bottom:22px;padding-bottom:12px;
+  border-bottom:1px solid rgba(0,212,255,.2);
   display:flex;align-items:center;gap:8px;
 }
 .directory-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:4px 16px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:8px 16px;
 }
 .directory-item{
-  font-size:13px;color:var(--dim);
-  padding:5px 0 5px 15px;position:relative;
-  transition:color .2s;white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis;
+  font-size:13px;color:#b8a9d1;padding:5px 0 5px 15px;
+  position:relative;transition:color .2s;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .directory-item::before{content:"•";position:absolute;left:0;color:var(--accent)}
 .directory-item:hover{color:#fff;cursor:default}
-
-/* ── TOAST ── */
+/* TOAST */
 #toast-container{
-  position:fixed;bottom:28px;right:28px;
+  position:fixed;bottom:30px;right:30px;
   display:flex;flex-direction:column;gap:10px;z-index:9999;
 }
 .toast{
-  background:linear-gradient(135deg,#1b6b1e,#2e9b32);
-  color:#fff;padding:14px 22px;border-radius:10px;
-  font-size:14px;font-weight:600;
-  box-shadow:0 6px 22px rgba(0,0,0,.5);
-  opacity:0;transform:translateX(110%);
-  transition:opacity .3s,transform .3s;max-width:320px;
+  background:#4caf50;color:#fff;padding:15px 25px;border-radius:8px;
+  font-size:14px;font-weight:bold;box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  opacity:0;transform:translateX(100%);
+  transition:opacity .3s ease,transform .3s ease;max-width:320px;
 }
 .toast.show{opacity:1;transform:translateX(0)}
-
-hr.sep{border:none;border-top:1px solid rgba(255,255,255,.06);margin:24px 0}
+hr.sep{border:none;border-top:1px solid rgba(255,255,255,.07);margin:24px 0}
 </style>
 </head>
 <body>
-
+ 
 <nav class="navbar">
   <div class="navbar-content">
     <a href="#" class="navbar-logo">
@@ -340,24 +274,24 @@ hr.sep{border:none;border-top:1px solid rgba(255,255,255,.06);margin:24px 0}
     </div>
   </div>
 </nav>
-
+ 
 <div class="hero-banner">
   <div class="hero-inner">
     <div class="hero-text">
       <h1>🎮 Catálogo Completo</h1>
-      <p>Más de 900 juegos disponibles &nbsp;·&nbsp; Steam keys &nbsp;·&nbsp; Actualizado diariamente</p>
+      <p>Más de 500 juegos disponibles &nbsp;·&nbsp; Steam keys &nbsp;·&nbsp; Actualizado diariamente</p>
     </div>
     <div class="hero-badge">🔥 Novedades<br><br>2025</div>
   </div>
 </div>
-
+ 
 <div class="section-header">
   <div class="section-dot"></div>
   <h2 id="section-title">Juegos Destacados</h2>
   <div class="section-line"></div>
 </div>
 <div class="results-info" id="results-info"></div>
-
+ 
 <main class="store-container">
   <section class="game-grid" id="contenedor-juegos"></section>
   <div class="pagination-container" id="paginacion"></div>
@@ -370,153 +304,653 @@ hr.sep{border:none;border-top:1px solid rgba(255,255,255,.06);margin:24px 0}
     <div class="directory-grid" id="lista-texto-inferior"></div>
   </section>
 </main>
-
+ 
 <div id="toast-container"></div>
-
+ 
 <script>
-const CATALOGO_NOMBRES = ["112 Operator","20+ NAUGHTY GAMES","60 Parsecs!","60 Seconds!","60 Seconds! Reatomized","7 Days to Die","911 Operator","A Dance of Fire and Ice","A Plague Tale: Imocence","A Plague Tale: Requiem","A Story About My Uncle","Abiotic Factor","ACE COMBAT 7: SKIES UNKNOWN","Aftermath","Against the Storm","Age of Empires 2: Definitive Edition","Age of Empires II (2013)","Age of Empires II: Definitive Edition","Age of Mythology: Retold","Alan Wake","Alan Wake's: American Nightmare","Alien Vs. Predator","Alien: Isolation","Aliens: Colonial Marines","Alone in the Dark","ALPHA PROTOCOL","American Truck Simulator","Amnesia: A Machine for Pigs","Amnesia: Rebirth","Amnesia: The Dark Descent","Among Us","Ancestors","ANNO:Mutationem - Collectors Edition","AO Tennis 2","Apewar","ARK: Survival Ascended","ARK: Survival Evolved","ARK: Survival Of The Fittest","ARK: The Survival Of The Fittest","Arma 2","Arma 2: Operation Arrowhead","Arma 3","Assassin's Creed III Remastered","Assassin's Creed IV Black - Flag","assassin's creed mirage","Assassin's Creed Odyssey","Assassin's Creed Origins","Assetto Corsa","Assetto Corsa Competizione","Assetto Corsa Ultimate Edition","Atelier Ryza 2 Lost Legends & The Secret Fairy","Atomic Heart","Atomic Survivors","Attack on Titan 2 - A.O.T.2","Autobahn Police Simulator","Automobilista 2","Avowed","Bad Guys at School","Balatro","Baldur's Gate 3","Baldur's Gate 3 Digital Deluxe","Baldur's Gate II: Enhanced Edition","Baldur's Gate: Enhanced Edition","Batman","Batman Arkham Origins Blackgate - Deluxe Edition","Batman: Arkham Asylum Game of the Year Edition","Batman: Arkham Asylum GOTY Edition","Batman: Arkham City - Game of the Year Edition","Batman: Arkham City GOTY","Batman: Arkham Collection","Batman: Arkham Knight","Batman™: Arkham Origins","Battlefield: Bad Company","Battlefield™ 6","BDSM Big Drunk Satanic Massacre","BeamNG drive","Beholder","Beholder 1 & 2","Ben and Ed - Blood Party","Bendy and the Dark Revival","Bendy and the ink Machine","Bendy: Lone Wolf","Beyond: Two Souls","Biker Garage: Mechanic Simulator","BINARY DOMAIN","Bio Inc: Redemption","Bioshock","Bioshock 2","Bioshock 2 Remastered","Bioshock 3","Bioshock Infinite","Bioshock Remastered","Bioshock Trilogy","BioShock: The Collection","Black Desert","Black Mesa","Black Myth: Wukong","Blair Witch","Blazing Beaks","Bloodstained Ritual Of The Night","Bloons TD 6","BMX The Game","Borderlands 2","Borderlands 3","Borderlands: The Pre-Sequel","Borderlans Goty","Boris and the Dark Survival","Brick Rigs","Bridge Constructor","Bridge Constructor: The Walking Dead","Bright Memory","Bright Memory Infinite","Broforce","Brotato","Brothers A Tale of Two Sons","Buckshot Roulette","Bulletstorm: Full Clip Edition","Bully","Bully: Scholarship Edition","Bus Simulator 21 Next Stop","Cakey's Twisted Bakery","Call of duty","Call of duty 4: Modern Warfare","Call of Duty 4: Modern Warfare (2007)","Call Of Duty Black Ops 1","call of duty mw3","Call of Duty: Advanced Warfare","Call of Duty: Black Ops","Call of Duty: Black Ops 2","Call of Duty: Black Ops 3","Call of Duty: Black Ops II","Call of Duty: Black Ops III","Call of Duty: Ghosts","Call of Duty: Infinite Warfare","Call of Duty: Modern Warfare 1","Call of duty: Modern Warfare 2","Call of Duty: Modern Warfare 2 (2009)","Call of Duty: Modern Warfare 3","Call of Duty: Modern Warfare 3 (2011)","Call of Duty: Modern Warfare Remastered","Call of Duty: Modern Warfare Remastered (2017)","Call of Duty: World at War","Call of Duty: WWII","Call of Juarez Gunslinger","Captain Tsubasa - Rise of New Champions","Car For Sale Simulator 2023","Car Mechanic Simulator 2018","Car Mechanic Simulator 2021","Car Mechanic Simulator VR","Car Tuning Simulator","Carto","Cash Cleaner Simulator","Castle Break","Castle Crashers","Celeste","Chained Together","Chivalry: Medieval Warfare","Choo-Choo Charles","Cities: Siylines Deluxe Edition","Cities: Skylines","City Car Driving","City Transport simulator","Clair Obscur Expedition 33","Clone Drone in the Danger Zone","CloverPit","CODE VEIN","Coffee Talk","Command And Conquer: Red Alert 3","Company of Heroes","Company of Heroes - Legacy Edition","Conan Exiles","Construction Simulator","Construction-Simulator 2015","Content Warning","Control Ultimate Edition","Cookie Clicker","Counter-Strike","Counter-Strike 1.6","Counter-Strike: Source","Crashlands 2","Creed: Rise to Glory","Crime Scene Cleaner","Crime Simulator Playgrounds","Crusader Kings II","Crysis 2 Maximum Edition","Cult of the Lamb","Cuphead","Cyber Manhunt","Cyberpunk 2077","Cyberpunk 2077 Phantom Liberty","Dakar 18","Danganronpa 2: Goodbye Despair","Danganronpa: Trigger Happy Havoc","Dark Sector","DARK SOULS II: Scholar of the First Sin","DARK SOULS III","DARK SOULS: REMASTERED","Darkest Dungeon","Darkness II","Darksiders","Darksiders 3","Darksiders II Deathinitive Edition","Darksiders III","Darksiders Warmastered Edition","Date A Live Rio Reincarnation","DAVE THE DIVER Digital Extra","Dawn Of Man","Day of Defeat","DAYS GONE","Dead Cells","Dead Island","Dead Island Definitive Edition","Dead island riptide","Dead Island Riptide Definitive Edition","Dead Rising 2","Dead Rising 3 Apocalypse Edition","Dead Space","Dead Space 2","Dead Space Remake","Deadlock","Death and Taxes","DEATH STRANDING","DEEEER Simulator: Your Average Everyday Deer Game","Deep Rock Galactic","DELTARUNE","Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles","DESTINY 2","Detroit: Become Human","Deus Ex Human Revolution","Devil May Cry 5","Devil May Cry 5 Deluxe + Vergil","Devil May Cry HD Collection","Devour","DIRT 3 Complete Edition","DIRT 5","Dirt Rally","DIRT Rally 2.0","DiRT Showdown","Dishonored","Dishonored 2","Dispatch","DISTRAINT: Deluxe Edition","Divinity: Original sin 2","Divinity: Original Sin 2 - Definitive Edition","Don't starve","Dont starve Together","DOOM","DOOM + DOOM II","DOOM Eternal","DOOM: The Dark Ages","DORAEMON STORY OF SEASONS","Dragon Ball FighterZ","Dragon ball: Sparking! ZERO","Drop","Drug Dealer Simulator 2","Dune: Awakening","Dying Light","Dying Light 2: Reloaded Edition","DYNASTY WARRIORS 9","DYNASTY WARRIORS: ORIGINS","Dyson Sphere Program","eFootball","eFootball PES 2020","Efootball PES 2021","ELDEN RING","Elden ring nightreign deluxe","Elden Ring Shadow of The Erdtree","Electrician Simulator","ELEX","Elex II","Emily Is Away Too","Empires of The Undergrowth","Enclave","Escape from Duckov","Escape Memoirs","Escape Simulator","Escape The Backrooms","Euro Truck Simulator 2","F1 2011","F1 2012","F1 2014","F1 2015","F1 2017","F1 2018","F1 2020","F1 2021","f1 2027","Factorio","Fahrenheit: Indigo Prophecy Remastered","Fallout 1","Fallout 2","fallout 4","Fallout 76","Fallout: New Vegas","Far Cry","Far Cry 2","Far Cry 4","Far Cry 5","Far Cry Primal","Far Cry® 3","Far Cry® 3 Blood Dragon","Farming Simulator 15","Farming Simulator 19","Farming Simulator 2011","Farming Simulator 2013","Farming Simulator 22","Farming Simulator 25","Farthest Fron","Fast Food Simulator","Fatal Frame Project Zero Maiden of Black Water","Fate/Samurai Remnant","Fernbus Simulator","FINAL FANTASY IX","FINAL FANTASY VII REBIRTH","FINAL FANTASY VIII","FINAL FANTASY XVI","Finding Frankie","Fireworks Mania","Five Nights at Freddy's","Five Nights at Freddy's 2","Five Nights at Freddy's 4","Five Nights at Freddy's: Secret of the Mimic","Five Nights at Freddy's: Security Breach","FlatOut","FlatOut 2","FlatOut 3","Football Manager 2015","Football Manager 2016","Football Manager 2017","Football Manager 2018","Football Manager 2019","Football Manager 2020","Football Manager 2022","Football Manager 2023","Football Manager Touch 2017","Football Manager Touch 2018","Forager","Formula RaceRoom Add-On","Forza Horizon 4","Forza Horizon 5","FPV Kamikaze Drone","Fran Bow","Friday 13th","Friday the 13th: The Game","Frostpunk","Frostpunk 1 & 2","Frostpunk 2","Garden Story","Garrys Mod","Gear Club Unlimited 2","Gears 5","Geometry Dash","Getting Over It with Bennett Foddy","Ghostrunner","Ghostwire: Tokyo","Goat Simulator","God of War","God of War Ragnarök","Going Under","Gotham Knights","Gothic 1 Classic","Gothic 2: Gold Edition","Gothic 3","GRANBLUE FANTASY: Relink Special Edition tier","Grand Theft Auto IV: The Complete Edition","Grand Theft Auto V Legacy","Grand Theft Auto: San Andreas","Grand Theft Auto: Vice City","Granny","Granny Remake","Green Hell","GRID","GRID 2","GRID Autosport","Grimm's Hollow","Grounded","Grounded 2","GT Legends","GTR Evolution","Guacamelee Gold Edition","Guacamelee Super Turbo Championship","Gunfire Reborn","Hades","Hades II","Half-Life","Half-Life (Blue Shift, Opposing Force)","Half-Life 2","Half-Life: Blue Shift","Half-Life: Opposing Force","Halo: The Master Chief Collection","Headliner","Hearts of Iron IV","Heavy Rain","Hellblade: Senua's Sacrifice","Hello Neighbor","Hitman (Alot)","HITMAN 2","HITMAN World of Assassination","Hitman: Absolution","Hitman: Sniper Challenge","Hogwarts Legacy","Hollow Knight","Hollow Knight: Silksong","Home Sweet Home Survive","Hometopia","Horizon Zero Dawn","Horizon Zero Dawn Complete Edition","Hotline Miami","Hotline Miami 2: Wrong Number","House Flipper","House of Legacy","Human Fall Flat","Icarus","ICBM","Incredibox","Injustice 2 Legendary Edition","Injustice: Gods Among Us Ultimate Edition","Inmost","Inscryption","INSIDE","Internet Cafe Simulator","Internet Cafe Simulator 2","Into the Dead: Our Darkest Days","Intravenous","Iris.Fall","Island of Insight","Islands of Insight","Isle of Jura","It Takes Two","JAPANESE DRIFT MASTER","Journey","Journey To The Savage Planet","Jujutsu Kaisen Cursed Clash","Jump Force","Jump King","Jurassic World Evolution","Jusant","Just Cause 2","Just Cause 3","Katana Zero","Kena: Bridge of spirits","Kenshi","Kerbal Space Program","Killing Floor 2","Kimetsu no Yaiba: Hinokami Keppūtan","Kingdom Come: Deliverance","Kingdom Come: Deliverance 1 & 2","Kingdom Come: Deliverance 2","Kingdom Come: Deliverance II","Kingdom Two Crowns","Labirinto","LARA CROFT AND THE TEMPLE OF OSIRIS","Lara Croft and the Temple of Osiris Alien: Isolation Tomb Raider","Left 4 Dead","Left 4 Dead 2","LEGO Batman 2: DC Super Heroes","LEGO Batman 3: Beyond Gotham","LEGO City Undercover","LEGO Jurassic World","LEGO MARVEL Super Heroes","LEGO MARVEL's Avengers","LEGO Star Warst: La Saga Skywalker","LEGO The Hobbit","LEGO The Lord of the Rings","LEGOO Bricktales","LEGO® Star Wars™ - The Complete Saga","Lethal Company","Level Zero Extraction","Liars Bar","Lies of P Deluxe Edition","Life is strange","life is strange 2","Life is Strange 2 Complete Season","Life is Strange Remastered","Life is Strange: Before the Storm Remastered","Life is Strange: True Colors","Like a Dragon Pirate Yakuza in Hawaii","LIMBO","Little Nightmares","Little Nightmares Enhanced Edition","Little Nightmares III","Lords of the Fallen","Lossless Scaling","Lost Daughter","Lost Soul Aside","Mad Max","Mafa II: Definitive Edition","Mafa III: Definitive Edition","Mafia","Mafia 2: Definitive Edition","Mafia 3: Definitive Edition","Mafia Collection","Mafia: Definitive Edition","Mafia: The Old Country","Magic (2014, 2015, Duels)","Magicka","Maneater","Manor Lords","Manual Samuel Anniversary Edition","Martha is Dead","Marvel's Avengers The Definitive Edition","Marvel's Midnight Suns","Marvel's Spider-Man: Miles Morales","Marvel's Spider-Man Remastered","Mass Effect (2007)","Maximum Action","Medieval Dynasty","Metal Gear Solid V: Ground Zeroes","METAL GEAR SOLID V: GROUND ZEROES + THE PHANTOM PAIN","Metal Gear Solid V: Phantom Pain","Metal Gear Solid: Ground Zeroes","Metal Gear Solid: The Phant","Metaphor: ReFantazio","METRO (2033 Redux, Last Light Redux)","Metro 2033","Metro 2033 / Exodus","Metro 2033 Redux","Metro Bundle","Metro Exodus","Metro: Last Light Complete Edition","Metro: Last Light Redux","Microsoft Flight Simulator 2020","Microsoft Flight Simulator X: Steam Edition","Middle-earth: Shadow of War","Millennium Dream","Minecraft Dungeons","Minecraft Legends","Mirror's Edge","Miside","MONSTER HUNTER RISE","Monster Hunter Wilds","Monster Hunter: World","MORDHAU","Mortal Kombat 1","Mortal Kombat 1 Khaos Reigns","Mortal Kombat 11","Mortal Kombat 9 Komplete Edition","Mortal Kombat bundle","Mortal Kombat X","Mortal Shell","Moto Racer 4","Motorcycle Mechanic Simulator 2021","Mount & Blade II: Bannerlord","MudRunner","Muse Dash","MX Bikes","MXGP PRO","My Garage","My Summer Car","My Time at Portia","My Time At Sandrock","NARUTO SHIPPUDEN: Ultimate Ninja STORM 3 Full Burst HD","NARUTO SHIPPUDEN: Ultimate Ninja STORM 4","NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 Road to Boruto Expansion","NBA 2K18","NBA 2K19","NBA 2K20","NBA 2K22","NBA 2K23","NBA 2K24","NBA 2k25","NEEDY STREAMER OVERLOAD","Neon Abyss 2","Nidhogg","NieR Replicant™","NieR:Automatan","Ninja Gaiden 2 Black","NINJA GAIDEN: Master Collection","Nioh 2 – The Complete Edition","Nioh: Complete Edition","No Man's Sky","No. I'm not a Human","Northgard","Oceanhorn: Monster of Uncharted Seas","OCTOPATH TRAVELER II","Omori","One Piece: Burning Blood","Only Up!","Or Many","Ori and the Blind Forest","Ori and the Blind Forest: Definitive Edition","Ori and the Will of the Wisps","Orwell","Outlast","Outlast 1 & 2","Outlast 2","Outward","Overcooked! 2","Overgrowth","Oxygen Not Included","PAC-MAN™ CHAMPIONSHIP EDITION 2","Pacific Drive","Pacify","Paint the Town Red","Paladins","Palworld","Paper, Plase","Pathologic 2","PAYDAY 2","PC Building Simulator","PEAK","People Playground","Persona 4 Golden","Persona 5 Royal","Phasmophobia","Pillars of Eternity - Definitive Edition","Pillars of Eternity II: Deadfire - Obsidian Edition","PIPE","Plague Inc","Plague Inc: Evolved","Planet Coaster","Planet Crafter","Planet Zoo","Plants vs. Zombies: Game of the Year","Poly Bridge","Poly Bridge 2","Poly Bridge 3","Polyball","Poppy Playtime","Poppy Playtime + Chapter 2","Poppy Playtime Chapter 5","Poppy Playtime chapter2","Portal","Portal 1 & 2","Portal 2","POSTAL 2","POSTAL Redux","Prey","Prison Architect","Project CARS","Project CARS 2","Project Hospital","Project Zomboid","Prototype","Prototype 2","Pummel Party","R.E.P.O.","R.I.P. Reincarnation Insurance Program","RACE 07","RACE 07: Andy Priaulx Crowne Plaza Raceway","Race Injection","RACE On","RACE: Caterham Expansion","Race: The WTCC Game","Raft","RAGE","Rain World","Ranch Simulator","Ratchet & Clank: Rift Apart","Ravenfield","Ravenous Devils","Ready or Not","reanimal","Red Dead Redemption 2","Reed","Regions Of Ruin","Renegade Ops","Resident Evil","Resident Evil / biohazard HD REMASTER","Resident Evil 1","Resident Evil 2","Resident Evil 3","Resident Evil 4","Resident Evil 4 (2005)","Resident Evil 4 Remake","Resident Evil 4: Caminos distintos","Resident Evil 5","Resident Evil 6","Resident Evil 7","Resident Evil 7 Biohazard","Resident Evil 7 Teaser: Beginning Hour","Resident Evil Re:Verse","Resident Evil Requiem","Resident Evil Revelations","Resident Evil Revelations 2","Resident Evil Village","Resident Evil Zero","Ricochet","Ride 2","RIDE 3","RimWorld","Rise of Flight United","Rise of the Tomb Raider","Rise of the Tomb Raider: 20 Year Celebration","Risen 2: Dark Waters","Rising Storm 2: Vietnam","Risk of Rain 2","Road 96: Mile 0","RoboCop: Rogue City","RoboCop: Rogue City Alex Murphy Edition","Rocket League","RUNNING WITH RIFLES","rust","RV There Yet?","Ryse: Son of Rome","S.T.A.L.K.E.R. 2: Heart of Chernobyl","S.T.A.L.K.E.R. 2: Heart of Chornobyl","S.T.A.L.K.E.R.: Bundle Enhanced Edition","S.T.A.L.K.E.R.: Call of Prypiat","S.T.A.L.K.E.R.: Call of Prypiat - Enhanced Edition","S.T.A.L.K.E.R.: Shadow of Chernobyl","S.T.A.L.K.E.R.: Shadow of Chornobyl","S.T.A.L.K.E.R.: Shadow of Chornobyl - Enhanced Edition","Sackboy: A Big Adventure","Saints Row IV","Saints Row: The Third","Satisfactory","Schedule I","SchoolBoy Runaway","Scrap Mechanic","SEGA Mega Drive & Genesis Classics","Sekiro: Shadows Die Twice","Senren＊Banka","September 7th","Serena","Serial Cleaner","Serious sam 2","Serious Sam 3: BFE","Serious Sam 4","Serious Sam Fusion","Session: Skate Sim","Shadow Fight Arena","Shadow of the tomb raider","Shadow Warrior 2","Shadow Warrior: Special Edition","Shadows Awakening","Shadows of Doubt","Sheltered","Sheltered 2","Ship Of Fools","Ship Simulator Extremes","SHOFER Race Driver","Shovel Knight: Treasure Trove","Sid Meiers Civilization VI","SIFU","SILENT HILL 2","Silent Hills","Simulacra 2","Skater XL","Skoof Simulator","Skul: The Hero Slayer","Skullgiris 2nd Encore","Slay the Spire","Sleeping Dogs: Definitive Edition","Slime Rancher","Slime Rancher 2","Sniper Eiite 4","Sniper Elite","Sniper Elite 5","Sniper Elite 5 Deluxe Edition","Sniper Elite V2","Sniper: Ghost Warrior","Sonic Adventure DX","Sonic Frontiers","Sons Of The Forest","Sora no Kiseki the 1st","Soulmask","Soundpad","South Park: The Stick of Truth","Space Engineers","Spec Ops: The Line","Spelunky","Spiritfarer: Farewell Edition","Spongebob Squarepants Battle For Bikini Bottom Rehydrated","Spore","Spyro Reignited Trilogy","STAR WARS Knight of the Old Republic","STAR WARS Knights of the Old Republic II - The Sith Lords","Stardew Valley","State of Decay 2","Stay Close","STCC II","STCC: The Game","STEINS;GATE","Stellar Blade","Stick Fight: The Game","STORY OF SEASONS: Grand Bazaar","Stray","streamer Life Simulator","Streamer Life Simulator 2","Street fighter 5","Street Fighter 6","Street Fighter V","Street Racing Syndicate","Subnautica","Subnautica: Below Zero","Sultan's Game","Super Meat Boy","SUPERHOT","Superhot VR","SUPERHOT: MIND CONTROL DELETE","Supermarket Simulator","Supraland","Supraland Six Inches Under","Surgeon Simulator","Surgeon Simulator 2","Tabletop Simulator","Tales from the Borderlands","Tales of Arise","Tavern Master","Teardown","Teenage Mutant Ninja Turtles: Shredder's Revenge","Tekken 7","Tekken 7 - Ultimate Edition","TEKKEN 8","Terraria","The Alters","The Baby in Yellow","The Binding of Isaac (Flash)","The Binding of Isaac: Rebirth","The Binding of Isaac: Repetance","The Bridge Curse 2: The Extrication","The Callisto Protocol","The Club","The Dark Pictures Anthology: House of Ashes","The Darkness Il","The Elder Scroll V: Skyrim Special Edition","The Elder Scrolls IV: Oblivion Game of the Year Edition (2009)","The Elder Scrolls V: Skyrim","The Elder Scrolls V: Skyrim Special Edition","The Escapist","The Escapist: The Walking Dead","The Escapists","The Escapists 2","The Escapists: The Walking Dead","The Evil Within 2","The First Berserker: Khazan","The Forest","The Henry Stickmin Collection","The Isle","THE LASH OF USE PART II REMASTED","The Last of Us Part 1","The Last of Us Part 2","The Last of Us™ Part I","The LEGO NINJAGO Movie Video Game","The Life and Suffering of Sir Brante","The Lift","The Long Dark","The Long Drive","The Medium","The Outlast Trials","The Quarry","The Retro Expansion","The Snowboard Game","The Stanley Parable: Ultra Deluxe","The Texas Chain Saw Massacre","The Walking Dead","The Walking Dead: The Final Season","The Walking Dead: The Telltale Defiinitive Series","The Walking Dead: The Telltale Definitive Series","The Witcher 2","The Witcher 2: Assasins of Kings Enchanced Edition","The Witcher 2: Assassins of Kings Enhanced Edition","The Witcher Trilogy","The Witcher: Enchanced Edition","The Witcher: Enhanced Edition","The Witcher: Wild Hunt","The WTCC 2010 Pack","theHunter: Call of the Wild","They Are Billions","Thief simulator","Thief Simulator VR","Thief: Deadly Shadows","This Is The Police 1 & 2","This War of Mine","Three Kingdoms Mushouden","Thronefall","Tiny Bunny","Titan Quest Anniversary Edition","Titan Souls","Tomb Raider","Tomb Raider: Underworld","Torchlight II","Torchlight III","Total War: SHOGUN 2","Totally Accurate Battle Simulator","Tourist Bus Simulator","TRANSFORMERS: Devastation","Trasport Fever 2","Trek to Yomi","Trials Evolution: Gold Edition","Trip to Vinelands","Tropico 6","Turmoil","Ultimate Chicken Horse","Ultimate Epic Battle Simulator","ULTRAKILL","UNCHARTED™: Legacy of Thieves Collection","Undertale","Universe Sandbox","Untitled Goose Game","V Rising","Valheim","Vampire Survivors","Vampire: The Masquerade","Vampyr","Victoria 3","Viking: Battle for Asgard","Visage","WALLPAPER ALIVE","Wallpaper Engine","Warhammer 40.000: Sanctus Reach","Warriors Orochi 3 Ultimate Definitive Edition","Warriors Orochi 4","Watch Dogs: Legion","We Went Back","What The FOG","Where's My Helmet?","Witchfire","Wo Long: Fallen Dynasty","Wolfenstein II: The New Colossus","Workshop Simulator","World War Z","World War Z Aftermath","WorldBox - God Simulator","Worms W.M.D","WRC7","Wuchang Fallen Fathers","Wuchang: Fallen Feathers","WWE 2K20","WWE 2K22","WWE 2K23","X-COM: Complete Pack","X-Plane 11","X4: Foundations","XCOM Enemy Unknown","XCOM® 2","Yakuza 0","Yakuza Kiwami","Your Only Move Is HUSTLE","Zero Hour","Zero Sievert","Zombie Army 4: Dead War"];
-const JUEGOS_DESTACADOS = ["Black Myth: Wukong","ELDEN RING","Resident Evil 4 Remake","Forza Horizon 5","Cyberpunk 2077","Baldur's Gate 3","Red Dead Redemption 2","Hogwarts Legacy","S.T.A.L.K.E.R. 2: Heart of Chornobyl","Palworld","Grand Theft Auto V Legacy","TEKKEN 8","Mortal Kombat 1","Street Fighter 6","Lethal Company","Marvel's Spider-Man Remastered","God of War Ragnarök","Sekiro: Shadows Die Twice","Dead Space Remake","Elden ring nightreign deluxe"];
-const STEAM_IDS = {"112 Operator":793460,"20+ NAUGHTY GAMES":1046360,"60 Parsecs!":423590,"60 Seconds!":368360,"60 Seconds! Reatomized":1012820,"7 Days to Die":251570,"911 Operator":503560,"A Dance of Fire and Ice":977950,"A Plague Tale: Imocence":752590,"A Plague Tale: Requiem":1182900,"A Story About My Uncle":278920,"Abiotic Factor":427410,"ACE COMBAT 7: SKIES UNKNOWN":502500,"Aftermath":1285620,"Against the Storm":1810810,"Age of Empires 2: Definitive Edition":813780,"Age of Empires II (2013)":221380,"Age of Empires II: Definitive Edition":813780,"Age of Mythology: Retold":1934680,"Alan Wake":108710,"Alan Wake's: American Nightmare":202750,"Alien Vs. Predator":10680,"Alien: Isolation":214490,"Aliens: Colonial Marines":49440,"Alone in the Dark":548090,"ALPHA PROTOCOL":34010,"American Truck Simulator":270880,"Amnesia: A Machine for Pigs":239200,"Amnesia: Rebirth":999220,"Amnesia: The Dark Descent":57300,"Among Us":945360,"Ancestors":936520,"ANNO:Mutationem - Collectors Edition":1437610,"AO Tennis 2":854940,"ARK: Survival Ascended":2399830,"ARK: Survival Evolved":346110,"ARK: Survival Of The Fittest":346110,"ARK: The Survival Of The Fittest":346110,"Arma 2":33900,"Arma 2: Operation Arrowhead":33930,"Arma 3":107410,"assassin's creed mirage":2054890,"Assassin's Creed III Remastered":891290,"Assassin's Creed IV Black - Flag":242050,"Assassin's Creed Odyssey":812140,"Assassin's Creed Origins":582160,"Assetto Corsa":244210,"Assetto Corsa Competizione":805550,"Assetto Corsa Ultimate Edition":244210,"Atelier Ryza 2 Lost Legends & The Secret Fairy":1371820,"Atomic Heart":668580,"Atomic Survivors":2217410,"Attack on Titan 2 - A.O.T.2":613581,"Autobahn Police Simulator":263740,"Automobilista 2":1066890,"Avowed":2457220,"Bad Guys at School":1050470,"Balatro":2379780,"Baldur's Gate 3":1086940,"Baldur's Gate 3 Digital Deluxe":1086940,"Baldur's Gate II: Enhanced Edition":257350,"Baldur's Gate: Enhanced Edition":228280,"Batman":209000,"Batman Arkham Origins Blackgate - Deluxe Edition":261550,"Batman: Arkham Asylum Game of the Year Edition":35140,"Batman: Arkham Asylum GOTY Edition":35140,"Batman: Arkham City - Game of the Year Edition":200260,"Batman: Arkham City GOTY":200260,"Batman: Arkham Collection":208650,"Batman: Arkham Knight":208650,"Batman™: Arkham Origins":209000,"Battlefield: Bad Company":1238810,"Battlefield™ 6":1238810,"BDSM Big Drunk Satanic Massacre":1008050,"BeamNG drive":284160,"Beholder":475550,"Beholder 1 & 2":475550,"Ben and Ed - Blood Party":657930,"Bendy and the Dark Revival":1315200,"Bendy and the ink Machine":622100,"Bendy: Lone Wolf":2243720,"Beyond: Two Souls":1117790,"Biker Garage: Mechanic Simulator":845370,"BINARY DOMAIN":225460,"Bio Inc: Redemption":273270,"Bioshock":409710,"Bioshock 2":8850,"Bioshock 2 Remastered":409710,"Bioshock 3":49520,"Bioshock Infinite":49520,"Bioshock Remastered":409710,"Bioshock Trilogy":409710,"BioShock: The Collection":409710,"Black Desert":1292030,"Black Mesa":362890,"Black Myth: Wukong":2358720,"Blair Witch":1288310,"Blazing Beaks":818600,"Bloodstained Ritual Of The Night":692850,"Bloons TD 6":960090,"BMX The Game":716340,"Borderlands 2":49520,"Borderlands 3":397540,"Borderlands: The Pre-Sequel":261640,"Borderlans Goty":49510,"Boris and the Dark Survival":1325550,"Brick Rigs":552100,"Bridge Constructor":221850,"Bridge Constructor: The Walking Dead":1396780,"Bright Memory":1178040,"Bright Memory Infinite":1178041,"Broforce":274190,"Brotato":1942280,"Brothers A Tale of Two Sons":225080,"Buckshot Roulette":2585970,"Bulletstorm: Full Clip Edition":501590,"Bully":12200,"Bully: Scholarship Edition":12200,"Bus Simulator 21 Next Stop":1222790,"Cakey's Twisted Bakery":1925580,"Call of duty":42700,"Call of duty 4: Modern Warfare":7940,"Call of Duty 4: Modern Warfare (2007)":7940,"Call Of Duty Black Ops 1":42700,"call of duty mw3":115300,"Call of Duty: Advanced Warfare":209650,"Call of Duty: Black Ops":42700,"Call of Duty: Black Ops 2":202970,"Call of Duty: Black Ops 3":311210,"Call of Duty: Black Ops II":202970,"Call of Duty: Black Ops III":311210,"Call of Duty: Ghosts":209160,"Call of Duty: Infinite Warfare":292730,"Call of Duty: Modern Warfare 1":42700,"Call of duty: Modern Warfare 2":10180,"Call of Duty: Modern Warfare 2 (2009)":10180,"Call of Duty: Modern Warfare 3":115300,"Call of Duty: Modern Warfare 3 (2011)":115300,"Call of Duty: Modern Warfare Remastered":393080,"Call of Duty: Modern Warfare Remastered (2017)":393080,"Call of Duty: World at War":10090,"Call of Duty: WWII":476600,"Call of Juarez Gunslinger":204880,"Captain Tsubasa - Rise of New Champions":1113340,"Car For Sale Simulator 2023":1638320,"Car Mechanic Simulator 2018":581840,"Car Mechanic Simulator 2021":1190000,"Car Mechanic Simulator VR":739130,"Car Tuning Simulator":1501320,"Carto":1172450,"Cash Cleaner Simulator":2303470,"Castle Break":1768190,"Castle Crashers":204360,"Celeste":504230,"Chained Together":2717640,"Chivalry: Medieval Warfare":219640,"Choo-Choo Charles":1766740,"Cities: Siylines Deluxe Edition":255710,"Cities: Skylines":255710,"City Car Driving":493490,"City Transport simulator":762280,"Clair Obscur Expedition 33":2835570,"Clone Drone in the Danger Zone":397610,"CloverPit":1984090,"CODE VEIN":678960,"Coffee Talk":914800,"Command And Conquer: Red Alert 3":17480,"Company of Heroes":228200,"Company of Heroes - Legacy Edition":228200,"Conan Exiles":440900,"Construction Simulator":1273400,"Construction-Simulator 2015":320300,"Content Warning":2881650,"Control Ultimate Edition":870780,"Cookie Clicker":1454400,"Counter-Strike":10,"Counter-Strike 1.6":10,"Counter-Strike: Source":240,"Crashlands 2":892090,"Creed: Rise to Glory":804490,"Crime Scene Cleaner":2663580,"Crime Simulator Playgrounds":1545540,"Crusader Kings II":203770,"Crysis 2 Maximum Edition":108800,"Cult of the Lamb":1313140,"Cuphead":268910,"Cyber Manhunt":1184680,"Cyberpunk 2077":1091500,"Cyberpunk 2077 Phantom Liberty":1091500,"Dakar 18":718540,"Danganronpa 2: Goodbye Despair":413420,"Danganronpa: Trigger Happy Havoc":413410,"Dark Sector":211960,"DARK SOULS II: Scholar of the First Sin":335300,"DARK SOULS III":374320,"DARK SOULS: REMASTERED":570940,"Darkest Dungeon":262060,"Darkness II":204360,"Darksiders":462780,"Darksiders 3":606280,"Darksiders II Deathinitive Edition":388410,"Darksiders III":606280,"Darksiders Warmastered Edition":462780,"Date A Live Rio Reincarnation":740300,"DAVE THE DIVER Digital Extra":1868140,"Dawn Of Man":858810,"Day of Defeat":30,"DAYS GONE":1259420,"Dead Cells":588650,"Dead Island":383150,"Dead Island Definitive Edition":383150,"Dead island riptide":383180,"Dead Island Riptide Definitive Edition":383180,"Dead Rising 2":45740,"Dead Rising 3 Apocalypse Edition":261550,"Dead Space":1693980,"Dead Space 2":47780,"Dead Space Remake":1693980,"Deadlock":1422450,"Death and Taxes":1166080,"DEATH STRANDING":1190460,"DEEEER Simulator: Your Average Everyday Deer Game":1318820,"Deep Rock Galactic":548430,"DELTARUNE":1671210,"Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles":1490890,"DESTINY 2":1085660,"Detroit: Become Human":1222730,"Deus Ex Human Revolution":28050,"Devil May Cry 5":601150,"Devil May Cry 5 Deluxe + Vergil":601150,"Devil May Cry HD Collection":631510,"Devour":1274570,"DIRT 3 Complete Edition":321040,"DIRT 5":1259380,"Dirt Rally":310560,"DIRT Rally 2.0":690790,"DiRT Showdown":201700,"Dishonored":205100,"Dishonored 2":403640,"Dispatch":1364740,"DISTRAINT: Deluxe Edition":536880,"Divinity: Original sin 2":435150,"Divinity: Original Sin 2 - Definitive Edition":435150,"Don't starve":219740,"Dont starve Together":322330,"DOOM":379720,"DOOM + DOOM II":379720,"DOOM Eternal":782330,"DOOM: The Dark Ages":2835570,"DORAEMON STORY OF SEASONS":755090,"Dragon Ball FighterZ":678950,"Dragon ball: Sparking! ZERO":1790600,"Drop":1366620,"Drug Dealer Simulator 2":1929000,"Dune: Awakening":1172710,"Dying Light":239140,"Dying Light 2: Reloaded Edition":534380,"DYNASTY WARRIORS 9":837350,"DYNASTY WARRIORS: ORIGINS":2683450,"Dyson Sphere Program":1366540,"eFootball":1846370,"eFootball PES 2020":1080340,"Efootball PES 2021":1313360,"ELDEN RING":1245620,"Elden ring nightreign deluxe":2933620,"Elden Ring Shadow of The Erdtree":1245620,"Electrician Simulator":1676490,"ELEX":411300,"Elex II":1361510,"Emily Is Away Too":687120,"Empires of The Undergrowth":463530,"Enclave":256480,"Escape from Duckov":2030880,"Escape Memoirs":1680260,"Escape Simulator":1433360,"Escape The Backrooms":1943950,"Euro Truck Simulator 2":227300,"F1 2011":45760,"F1 2012":211260,"F1 2014":268910,"F1 2015":286570,"F1 2017":515560,"F1 2018":737800,"F1 2020":1108680,"F1 2021":1259380,"f1 2027":1259380,"Factorio":427520,"Fahrenheit: Indigo Prophecy Remastered":340390,"Fallout 1":38400,"Fallout 2":38410,"fallout 4":377160,"Fallout 76":1151340,"Fallout: New Vegas":22380,"Far Cry":13520,"Far Cry 2":19900,"Far Cry 4":298110,"Far Cry 5":552520,"Far Cry Primal":371660,"Far Cry® 3":220240,"Far Cry® 3 Blood Dragon":233270,"Farming Simulator 15":313160,"Farming Simulator 19":787860,"Farming Simulator 2011":236090,"Farming Simulator 2013":220260,"Farming Simulator 22":1248130,"Farming Simulator 25":2300320,"Farthest Fron":1336490,"Fast Food Simulator":2309200,"Fatal Frame Project Zero Maiden of Black Water":1388840,"Fate/Samurai Remnant":1979750,"Fernbus Simulator":574420,"FINAL FANTASY IX":377840,"FINAL FANTASY VII REBIRTH":2909400,"FINAL FANTASY VIII":39150,"FINAL FANTASY XVI":1971650,"Finding Frankie":2684330,"Fireworks Mania":1079600,"Five Nights at Freddy's":319510,"Five Nights at Freddy's 2":388790,"Five Nights at Freddy's 4":506610,"Five Nights at Freddy's: Secret of the Mimic":3132900,"Five Nights at Freddy's: Security Breach":747100,"FlatOut":2590,"FlatOut 2":2591,"FlatOut 3":213440,"Football Manager 2015":295270,"Football Manager 2016":385640,"Football Manager 2017":482600,"Football Manager 2018":622620,"Football Manager 2019":872790,"Football Manager 2020":1100600,"Football Manager 2022":1262700,"Football Manager 2023":1464690,"Football Manager Touch 2017":482610,"Football Manager Touch 2018":622630,"Forager":751780,"Formula RaceRoom Add-On":211500,"Forza Horizon 4":1293830,"Forza Horizon 5":1551360,"FPV Kamikaze Drone":2074000,"Fran Bow":427660,"Friday 13th":438740,"Friday the 13th: The Game":438740,"Frostpunk":323190,"Frostpunk 1 & 2":323190,"Frostpunk 2":1473960,"Garden Story":1062140,"Garrys Mod":4000,"Gear Club Unlimited 2":1050290,"Gears 5":1097840,"Geometry Dash":322170,"Getting Over It with Bennett Foddy":240720,"Ghostrunner":1139900,"Ghostwire: Tokyo":1475810,"Goat Simulator":265930,"God of War":1593500,"God of War Ragnarök":2322010,"Going Under":1263300,"Gotham Knights":1496790,"Gothic 1 Classic":39500,"Gothic 2: Gold Edition":39510,"Gothic 3":39500,"GRANBLUE FANTASY: Relink Special Edition tier":881020,"Grand Theft Auto IV: The Complete Edition":12210,"Grand Theft Auto V Legacy":271590,"Grand Theft Auto: San Andreas":12120,"Grand Theft Auto: Vice City":12110,"Granny":1659140,"Granny Remake":1971750,"Green Hell":815370,"GRID":1228611,"GRID 2":245870,"GRID Autosport":255220,"Grimm's Hollow":980560,"Grounded":962130,"Grounded 2":962130,"GT Legends":4700,"GTR Evolution":4730,"Guacamelee Gold Edition":215030,"Guacamelee Super Turbo Championship":215030,"Gunfire Reborn":1217060,"Hades":1145360,"Hades II":1145350,"Half-Life":70,"Half-Life (Blue Shift, Opposing Force)":130,"Half-Life 2":220,"Half-Life: Blue Shift":130,"Half-Life: Opposing Force":50,"Halo: The Master Chief Collection":976730,"Headliner":567880,"Hearts of Iron IV":394360,"Heavy Rain":960910,"Hellblade: Senua's Sacrifice":414340,"Hello Neighbor":756570,"Hitman (Alot)":1659040,"HITMAN 2":863550,"HITMAN World of Assassination":1659040,"Hitman: Absolution":203140,"Hitman: Sniper Challenge":203140,"Hogwarts Legacy":990080,"Hollow Knight":367520,"Hollow Knight: Silksong":1030300,"Home Sweet Home Survive":1207740,"Hometopia":1434090,"Horizon Zero Dawn":1151640,"Horizon Zero Dawn Complete Edition":1151640,"Hotline Miami":219150,"Hotline Miami 2: Wrong Number":274170,"House Flipper":613100,"House of Legacy":2278210,"Human Fall Flat":477160,"Icarus":1066780,"ICBM":1266090,"Incredibox":1420380,"Injustice 2 Legendary Edition":575630,"Injustice: Gods Among Us Ultimate Edition":242700,"Inmost":904890,"Inscryption":1092790,"INSIDE":304430,"Internet Cafe Simulator":726390,"Internet Cafe Simulator 2":1558530,"Into the Dead: Our Darkest Days":1978530,"Intravenous":1197970,"Iris.Fall":980260,"Island of Insight":2071500,"Islands of Insight":2071500,"Isle of Jura":1906930,"It Takes Two":1426210,"JAPANESE DRIFT MASTER":1489830,"Journey":638230,"Journey To The Savage Planet":1183940,"Jujutsu Kaisen Cursed Clash":1825770,"Jump Force":582460,"Jump King":1061090,"Jurassic World Evolution":648350,"Jusant":2219780,"Just Cause 2":8190,"Just Cause 3":225540,"Katana Zero":996010,"Kena: Bridge of spirits":1954200,"Kenshi":233860,"Kerbal Space Program":220200,"Killing Floor 2":232090,"Kimetsu no Yaiba: Hinokami Keppūtan":1490890,"Kingdom Come: Deliverance":379430,"Kingdom Come: Deliverance 1 & 2":379430,"Kingdom Come: Deliverance 2":1771300,"Kingdom Come: Deliverance II":1771300,"Kingdom Two Crowns":701160,"Labirinto":1896360,"LARA CROFT AND THE TEMPLE OF OSIRIS":289690,"Lara Croft and the Temple of Osiris Alien: Isolation Tomb Raider":289690,"Left 4 Dead":500,"Left 4 Dead 2":550,"LEGO Batman 2: DC Super Heroes":214710,"LEGO Batman 3: Beyond Gotham":363080,"LEGO City Undercover":578330,"LEGO Jurassic World":352400,"LEGO MARVEL Super Heroes":249130,"LEGO MARVEL's Avengers":438770,"LEGO Star Warst: La Saga Skywalker":1284190,"LEGO The Hobbit":285160,"LEGO The Lord of the Rings":214770,"LEGOO Bricktales":1874690,"LEGO® Star Wars™ - The Complete Saga":32200,"Lethal Company":1966720,"Level Zero Extraction":1709350,"Liars Bar":3097560,"Lies of P Deluxe Edition":1627720,"Life is strange":319630,"life is strange 2":532210,"Life is Strange 2 Complete Season":532210,"Life is Strange Remastered":936790,"Life is Strange: Before the Storm Remastered":936790,"Life is Strange: True Colors":936790,"Like a Dragon Pirate Yakuza in Hawaii":2737350,"LIMBO":48000,"Little Nightmares":424840,"Little Nightmares Enhanced Edition":424840,"Little Nightmares III":2159270,"Lords of the Fallen":1501750,"Lossless Scaling":993090,"Lost Daughter":2076400,"Lost Soul Aside":355530,"Mad Max":234140,"Mafa II: Definitive Edition":50130,"Mafa III: Definitive Edition":360430,"Mafia":1030840,"Mafia 2: Definitive Edition":50130,"Mafia 3: Definitive Edition":360430,"Mafia Collection":1030840,"Mafia: Definitive Edition":1030840,"Mafia: The Old Country":2973810,"Magic (2014, 2015, Duels)":213850,"Magicka":72200,"Maneater":1318480,"Manor Lords":1363080,"Manual Samuel Anniversary Edition":497890,"Martha is Dead":1477000,"Marvel's Avengers The Definitive Edition":997070,"Marvel's Midnight Suns":368260,"Marvel's Spider-Man: Miles Morales":1817190,"Marvel's Spider-Man Remastered":1817070,"Mass Effect (2007)":17460,"Maximum Action":724590,"Medieval Dynasty":1129580,"Metal Gear Solid V: Ground Zeroes":311340,"METAL GEAR SOLID V: GROUND ZEROES + THE PHANTOM PAIN":311340,"Metal Gear Solid V: Phantom Pain":287700,"Metal Gear Solid: Ground Zeroes":311340,"Metal Gear Solid: The Phant":287700,"Metaphor: ReFantazio":2679460,"METRO (2033 Redux, Last Light Redux)":286690,"Metro 2033":43110,"Metro 2033 / Exodus":286690,"Metro 2033 Redux":286690,"Metro Bundle":286690,"Metro Exodus":412020,"Metro: Last Light Complete Edition":287390,"Metro: Last Light Redux":287390,"Microsoft Flight Simulator 2020":1250410,"Microsoft Flight Simulator X: Steam Edition":314160,"Middle-earth: Shadow of War":356190,"Millennium Dream":2096890,"Minecraft Dungeons":1672970,"Minecraft Legends":1628350,"Mirror's Edge":17410,"Miside":2527500,"MONSTER HUNTER RISE":1446780,"Monster Hunter Wilds":2246340,"Monster Hunter: World":582010,"MORDHAU":629760,"Mortal Kombat 1":1971870,"Mortal Kombat 1 Khaos Reigns":1971870,"Mortal Kombat 11":976310,"Mortal Kombat 9 Komplete Edition":237110,"Mortal Kombat bundle":1971870,"Mortal Kombat X":307780,"Mortal Shell":1110910,"Moto Racer 4":477550,"Motorcycle Mechanic Simulator 2021":1368450,"Mount & Blade II: Bannerlord":261550,"MudRunner":675010,"Muse Dash":774171,"MX Bikes":655500,"MXGP PRO":668680,"My Garage":1578800,"My Summer Car":516750,"My Time at Portia":666140,"My Time At Sandrock":1501180,"NARUTO SHIPPUDEN: Ultimate Ninja STORM 3 Full Burst HD":266570,"NARUTO SHIPPUDEN: Ultimate Ninja STORM 4":349040,"NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 Road to Boruto Expansion":349040,"NBA 2K18":577550,"NBA 2K19":658790,"NBA 2K20":865170,"NBA 2K22":1644960,"NBA 2K23":1843760,"NBA 2K24":2338770,"NBA 2k25":2694900,"NEEDY STREAMER OVERLOAD":1451940,"Neon Abyss 2":2426850,"Nidhogg":251450,"NieR Replicant™":1113560,"NieR:Automatan":524220,"Ninja Gaiden 2 Black":3498660,"NINJA GAIDEN: Master Collection":1448440,"Nioh 2 – The Complete Edition":1325200,"Nioh: Complete Edition":485510,"No Man's Sky":275850,"No. I'm not a Human":1502350,"Northgard":744920,"Oceanhorn: Monster of Uncharted Seas":350750,"OCTOPATH TRAVELER II":1672440,"Omori":1150690,"One Piece: Burning Blood":349610,"Only Up!":2381590,"Or Many":1839450,"Ori and the Blind Forest":387290,"Ori and the Blind Forest: Definitive Edition":387290,"Ori and the Will of the Wisps":1057090,"Orwell":491950,"Outlast":238320,"Outlast 1 & 2":238320,"Outlast 2":414700,"Outward":764790,"Overcooked! 2":728880,"Overgrowth":25000,"Oxygen Not Included":457140,"PAC-MAN™ CHAMPIONSHIP EDITION 2":594090,"Pacific Drive":1458140,"Pacify":967050,"Paint the Town Red":595280,"Paladins":444090,"Palworld":1623730,"Paper, Plase":2162890,"Pathologic 2":505230,"PAYDAY 2":218620,"PC Building Simulator":621060,"PEAK":3200010,"People Playground":1118200,"Persona 4 Golden":1113000,"Persona 5 Royal":1687950,"Phasmophobia":739630,"Pillars of Eternity - Definitive Edition":291860,"Pillars of Eternity II: Deadfire - Obsidian Edition":560130,"PIPE":1396690,"Plague Inc":1455500,"Plague Inc: Evolved":246900,"Planet Coaster":493340,"Planet Crafter":1284190,"Planet Zoo":703080,"Plants vs. Zombies: Game of the Year":3590,"Poly Bridge":367450,"Poly Bridge 2":1062160,"Poly Bridge 3":1690130,"Polyball":368920,"Poppy Playtime":1721470,"Poppy Playtime + Chapter 2":1721470,"Poppy Playtime Chapter 5":1721470,"Poppy Playtime chapter2":1721470,"Portal":400,"Portal 1 & 2":400,"Portal 2":620,"POSTAL 2":223470,"POSTAL Redux":401560,"Prey":480490,"Prison Architect":233450,"Project CARS":234630,"Project CARS 2":378860,"Project Hospital":1089640,"Project Zomboid":108600,"Prototype":10150,"Prototype 2":214630,"Pummel Party":880940,"R.E.P.O.":3527290,"R.I.P. Reincarnation Insurance Program":1562380,"RACE 07":5765,"RACE 07: Andy Priaulx Crowne Plaza Raceway":5765,"Race Injection":5765,"RACE On":5765,"RACE: Caterham Expansion":5765,"Race: The WTCC Game":5765,"Raft":648800,"RAGE":9200,"Rain World":312520,"Ranch Simulator":1119730,"Ratchet & Clank: Rift Apart":1895840,"Ravenfield":636480,"Ravenous Devils":1693280,"Ready or Not":1144200,"reanimal":2680430,"Red Dead Redemption 2":1174180,"Reed":1063380,"Regions Of Ruin":680360,"Renegade Ops":99900,"Resident Evil":304240,"Resident Evil / biohazard HD REMASTER":304240,"Resident Evil 1":304240,"Resident Evil 2":883710,"Resident Evil 3":952060,"Resident Evil 4":7470,"Resident Evil 4 (2005)":7470,"Resident Evil 4 Remake":2050650,"Resident Evil 4: Caminos distintos":2050650,"Resident Evil 5":359530,"Resident Evil 6":221040,"Resident Evil 7":418370,"Resident Evil 7 Biohazard":418370,"Resident Evil 7 Teaser: Beginning Hour":418370,"Resident Evil Re:Verse":1893840,"Resident Evil Requiem":2971480,"Resident Evil Revelations":222480,"Resident Evil Revelations 2":287290,"Resident Evil Village":1196590,"Resident Evil Zero":359630,"Ricochet":60,"Ride 2":437720,"RIDE 3":731490,"RimWorld":294100,"Rise of Flight United":34960,"Rise of the Tomb Raider":391220,"Rise of the Tomb Raider: 20 Year Celebration":391220,"Risen 2: Dark Waters":219880,"Rising Storm 2: Vietnam":418460,"Risk of Rain 2":632360,"Road 96: Mile 0":1952290,"RoboCop: Rogue City":1681430,"RoboCop: Rogue City Alex Murphy Edition":1681430,"Rocket League":252950,"RUNNING WITH RIFLES":270150,"rust":252490,"RV There Yet?":1580920,"Ryse: Son of Rome":302510,"S.T.A.L.K.E.R. 2: Heart of Chernobyl":1643320,"S.T.A.L.K.E.R. 2: Heart of Chornobyl":1643320,"S.T.A.L.K.E.R.: Bundle Enhanced Edition":6910,"S.T.A.L.K.E.R.: Call of Prypiat":41700,"S.T.A.L.K.E.R.: Call of Prypiat - Enhanced Edition":41700,"S.T.A.L.K.E.R.: Shadow of Chernobyl":6910,"S.T.A.L.K.E.R.: Shadow of Chornobyl":6910,"S.T.A.L.K.E.R.: Shadow of Chornobyl - Enhanced Edition":6910,"Sackboy: A Big Adventure":1599250,"Saints Row IV":206420,"Saints Row: The Third":55230,"Satisfactory":526870,"Schedule I":3527290,"SchoolBoy Runaway":1628060,"Scrap Mechanic":387990,"SEGA Mega Drive & Genesis Classics":34270,"Sekiro: Shadows Die Twice":814380,"Senren＊Banka":1144400,"September 7th":1788510,"Serena":252190,"Serial Cleaner":549090,"Serious sam 2":204360,"Serious Sam 3: BFE":204300,"Serious Sam 4":1310400,"Serious Sam Fusion":564400,"Session: Skate Sim":861650,"Shadow Fight Arena":1109810,"Shadow of the tomb raider":750920,"Shadow Warrior 2":278970,"Shadow Warrior: Special Edition":270560,"Shadows Awakening":651510,"Shadows of Doubt":986130,"Sheltered":268660,"Sheltered 2":1309400,"Ship Of Fools":1719570,"Ship Simulator Extremes":72200,"SHOFER Race Driver":321040,"Shovel Knight: Treasure Trove":250760,"Sid Meiers Civilization VI":289070,"SIFU":1468240,"SILENT HILL 2":2124490,"Silent Hills":2124490,"Simulacra 2":1017050,"Skater XL":962640,"Skoof Simulator":1784220,"Skul: The Hero Slayer":1147560,"Skullgiris 2nd Encore":1082210,"Slay the Spire":646570,"Sleeping Dogs: Definitive Edition":307690,"Slime Rancher":433340,"Slime Rancher 2":1657630,"Sniper Eiite 4":312660,"Sniper Elite":231870,"Sniper Elite 5":1029690,"Sniper Elite 5 Deluxe Edition":1029690,"Sniper Elite V2":63380,"Sniper: Ghost Warrior":42760,"Sonic Adventure DX":71250,"Sonic Frontiers":1237320,"Sons Of The Forest":1326470,"Sora no Kiseki the 1st":683540,"Soulmask":2646460,"Soundpad":629520,"South Park: The Stick of Truth":213670,"Space Engineers":244850,"Spec Ops: The Line":2620,"Spelunky":1374810,"Spiritfarer: Farewell Edition":972660,"Spongebob Squarepants Battle For Bikini Bottom Rehydrated":969990,"Spore":17390,"Spyro Reignited Trilogy":996580,"STAR WARS Knight of the Old Republic":32370,"STAR WARS Knights of the Old Republic II - The Sith Lords":208580,"Stardew Valley":413150,"State of Decay 2":495420,"Stay Close":2110910,"STCC II":5765,"STCC: The Game":5765,"STEINS;GATE":412830,"Stellar Blade":3489700,"Stick Fight: The Game":674940,"STORY OF SEASONS: Grand Bazaar":1493350,"Stray":1597330,"streamer Life Simulator":1384140,"Streamer Life Simulator 2":2079640,"Street fighter 5":310950,"Street Fighter 6":1364780,"Street Fighter V":310950,"Street Racing Syndicate":286630,"Subnautica":264710,"Subnautica: Below Zero":848450,"Sultan's Game":1979540,"Super Meat Boy":40800,"SUPERHOT":617830,"Superhot VR":617830,"SUPERHOT: MIND CONTROL DELETE":690040,"Supermarket Simulator":2670630,"Supraland":813630,"Supraland Six Inches Under":1541360,"Surgeon Simulator":233720,"Surgeon Simulator 2":1297400,"Tabletop Simulator":286160,"Tales from the Borderlands":330830,"Tales of Arise":1365510,"Tavern Master":1734360,"Teardown":1167630,"Teenage Mutant Ninja Turtles: Shredder's Revenge":1361510,"Tekken 7":389730,"Tekken 7 - Ultimate Edition":389730,"TEKKEN 8":1778820,"Terraria":105600,"The Alters":2475490,"The Baby in Yellow":1375840,"The Binding of Isaac (Flash)":250900,"The Binding of Isaac: Rebirth":250900,"The Binding of Isaac: Repetance":250900,"The Bridge Curse 2: The Extrication":2097370,"The Callisto Protocol":1272430,"The Club":21680,"The Dark Pictures Anthology: House of Ashes":1458140,"The Darkness Il":204360,"The Elder Scroll V: Skyrim Special Edition":489830,"The Elder Scrolls IV: Oblivion Game of the Year Edition (2009)":22330,"The Elder Scrolls V: Skyrim":72850,"The Elder Scrolls V: Skyrim Special Edition":489830,"The Escapist":303640,"The Escapist: The Walking Dead":351090,"The Escapists":303640,"The Escapists 2":641990,"The Escapists: The Walking Dead":351090,"The Evil Within 2":601430,"The First Berserker: Khazan":2835730,"The Forest":242760,"The Henry Stickmin Collection":1089090,"The Isle":376210,"THE LASH OF USE PART II REMASTED":2531310,"The Last of Us Part 1":1888930,"The Last of Us Part 2":2531310,"The Last of Us™ Part I":1888930,"The LEGO NINJAGO Movie Video Game":727580,"The Life and Suffering of Sir Brante":1209150,"The Lift":1895390,"The Long Dark":305620,"The Long Drive":1164950,"The Medium":1293160,"The Outlast Trials":1304930,"The Quarry":1845640,"The Retro Expansion":5765,"The Snowboard Game":1401700,"The Stanley Parable: Ultra Deluxe":1011130,"The Texas Chain Saw Massacre":1974740,"The Walking Dead":207610,"The Walking Dead: The Final Season":784840,"The Walking Dead: The Telltale Defiinitive Series":1449690,"The Walking Dead: The Telltale Definitive Series":1449690,"The Witcher 2":20920,"The Witcher 2: Assasins of Kings Enchanced Edition":20920,"The Witcher 2: Assassins of Kings Enhanced Edition":20920,"The Witcher Trilogy":292030,"The Witcher: Enchanced Edition":20920,"The Witcher: Enhanced Edition":20920,"The Witcher: Wild Hunt":292030,"The WTCC 2010 Pack":5765,"theHunter: Call of the Wild":518790,"They Are Billions":644930,"Thief simulator":704850,"Thief Simulator VR":704850,"Thief: Deadly Shadows":6980,"This Is The Police 1 & 2":427880,"This War of Mine":282070,"Three Kingdoms Mushouden":1288320,"Thronefall":2239150,"Tiny Bunny":1203590,"Titan Quest Anniversary Edition":475150,"Titan Souls":297130,"Tomb Raider":203160,"Tomb Raider: Underworld":8140,"Torchlight II":200710,"Torchlight III":1030210,"Total War: SHOGUN 2":34330,"Totally Accurate Battle Simulator":508440,"Tourist Bus Simulator":762280,"TRANSFORMERS: Devastation":438410,"Trasport Fever 2":1156640,"Trek to Yomi":1410790,"Trials Evolution: Gold Edition":245490,"Trip to Vinelands":1789360,"Tropico 6":489510,"Turmoil":361280,"Ultimate Chicken Horse":386940,"Ultimate Epic Battle Simulator":616560,"ULTRAKILL":1229490,"UNCHARTED™: Legacy of Thieves Collection":1659420,"Undertale":391540,"Universe Sandbox":230290,"Untitled Goose Game":837470,"V Rising":1604030,"Valheim":892970,"Vampire Survivors":1794680,"Vampire: The Masquerade":2371510,"Vampyr":427290,"Victoria 3":529340,"Viking: Battle for Asgard":211480,"Visage":594330,"WALLPAPER ALIVE":431960,"Wallpaper Engine":431960,"Warhammer 40.000: Sanctus Reach":460840,"Warriors Orochi 3 Ultimate Definitive Edition":1360390,"Warriors Orochi 4":875400,"Watch Dogs: Legion":2035850,"We Went Back":1434140,"What The FOG":1803540,"Where's My Helmet?":2122950,"Witchfire":1341300,"Wo Long: Fallen Dynasty":1880360,"Wolfenstein II: The New Colossus":612880,"Workshop Simulator":1134030,"World War Z":699130,"World War Z Aftermath":1118560,"WorldBox - God Simulator":1206560,"Worms W.M.D":327030,"WRC7":532870,"Wuchang Fallen Fathers":3017860,"Wuchang: Fallen Feathers":3017860,"WWE 2K20":1097340,"WWE 2K22":1259980,"WWE 2K23":2139490,"X-COM: Complete Pack":200510,"X-Plane 11":269950,"X4: Foundations":392160,"XCOM Enemy Unknown":200510,"XCOM® 2":268500,"Yakuza 0":638970,"Yakuza Kiwami":834530,"Your Only Move Is HUSTLE":1634610,"Zero Hour":1359090,"Zero Sievert":1819020,"Zombie Army 4: Dead War":694280};
-
-// ── CATALOGO ORDENADO ──
+// ── DATOS ──────────────────────────────────────────────
+ 
+const CATALOGO_NOMBRES = ["112 Operator", "60 Seconds! Reatomized", "7 Days to Die", "911 Operator", "A Dance of Fire and Ice", "A Plague Tale: Requiem", "A Story About My Uncle", "Abiotic Factor", "ACE COMBAT 7: SKIES UNKNOWN", "Against the Storm", "Age of Empires II: Definitive Edition", "Age of Mythology: Retold", "Alan Wake", "Alien: Isolation", "Alone in the Dark", "American Truck Simulator", "Amnesia: Rebirth", "Amnesia: The Dark Descent", "Among Us", "ARK: Survival Ascended", "ARK: Survival Evolved", "Arma 3", "Assassin's Creed IV: Black Flag", "Assassin's Creed Mirage", "Assassin's Creed Odyssey", "Assassin's Creed Origins", "Assetto Corsa", "Assetto Corsa Competizione", "Atelier Ryza 2: Lost Legends & the Secret Fairy", "Atomic Heart", "Attack on Titan 2", "Automobilista 2", "Avowed", "Bad Guys at School", "Balatro", "Baldur's Gate 3", "Baldur's Gate II: Enhanced Edition", "Batman: Arkham Asylum GOTY", "Batman: Arkham City GOTY", "Batman: Arkham Knight", "Batman: Arkham Origins", "Battlefield: Bad Company 2", "BeamNG.drive", "Beholder", "Bendy and the Dark Revival", "Bendy and the Ink Machine", "Beyond: Two Souls", "Biker Garage: Mechanic Simulator", "BioShock Remastered", "BioShock 2 Remastered", "BioShock Infinite", "Black Desert Online", "Black Mesa", "Black Myth: Wukong", "Blair Witch", "Bloodstained: Ritual of the Night", "Bloons TD 6", "Borderlands 2", "Borderlands 3", "Borderlands: The Pre-Sequel", "Bright Memory: Infinite", "Broforce", "Brotato", "Brothers: A Tale of Two Sons", "Buckshot Roulette", "Bulletstorm: Full Clip Edition", "Bully: Scholarship Edition", "Bus Simulator 21 Next Stop", "Call of Duty: Black Ops", "Call of Duty: Black Ops II", "Call of Duty: Black Ops III", "Call of Duty: Ghosts", "Call of Duty: Infinite Warfare", "Call of Duty: Modern Warfare 2 (2009)", "Call of Duty: Modern Warfare 3 (2011)", "Call of Duty: Modern Warfare Remastered", "Call of Duty: World at War", "Call of Duty: WWII", "Call of Juarez: Gunslinger", "Car For Sale Simulator 2023", "Car Mechanic Simulator 2021", "Castle Crashers", "Celeste", "Chained Together", "Choo-Choo Charles", "Cities: Skylines", "City Car Driving", "Clair Obscur: Expedition 33", "Clone Drone in the Danger Zone", "CODE VEIN", "Coffee Talk", "Command & Conquer: Red Alert 3", "Company of Heroes", "Conan Exiles", "Construction Simulator", "Content Warning", "Control: Ultimate Edition", "Cookie Clicker", "Counter-Strike 1.6", "Counter-Strike: Source", "Crime Scene Cleaner", "Crusader Kings II", "Cult of the Lamb", "Cuphead", "Cyberpunk 2077", "Danganronpa: Trigger Happy Havoc", "Danganronpa 2: Goodbye Despair", "Dark Souls: Remastered", "Dark Souls II: Scholar of the First Sin", "Dark Souls III", "Darkest Dungeon", "Darksiders: Warmastered Edition", "Darksiders II: Deathinitive Edition", "Darksiders III", "Dave the Diver", "Dawn of Man", "Days Gone", "Dead Cells", "Dead Island Definitive Edition", "Dead Island: Riptide Definitive Edition", "Dead Rising 2", "Dead Space Remake", "Dead Space 2", "Deadlock", "Death Stranding", "Deep Rock Galactic", "Deltarune", "Demon Slayer: The Hinokami Chronicles", "Destiny 2", "Detroit: Become Human", "Deus Ex: Human Revolution", "Devil May Cry 5", "Devil May Cry HD Collection", "Devour", "Dirt Rally 2.0", "Dirt 5", "Dishonored", "Dishonored 2", "Divinity: Original Sin 2 - Definitive Edition", "Don't Starve Together", "DOOM (2016)", "DOOM Eternal", "DOOM: The Dark Ages", "Dragon Ball FighterZ", "Dragon Ball: Sparking! Zero", "Drug Dealer Simulator 2", "Dune: Awakening", "Dying Light", "Dying Light 2: Reloaded Edition", "Dynasty Warriors: Origins", "Dyson Sphere Program", "eFootball PES 2021", "Elden Ring", "Elden Ring: Nightreign", "ELEX", "ELEX II", "Empires of the Undergrowth", "Escape Simulator", "Escape the Backrooms", "Euro Truck Simulator 2", "F1 2020", "F1 2021", "Factorio", "Fallout: A Post Nuclear RPG", "Fallout 2", "Fallout 4", "Fallout 76", "Fallout: New Vegas", "Far Cry 3", "Far Cry 3: Blood Dragon", "Far Cry 4", "Far Cry 5", "Far Cry Primal", "Farming Simulator 22", "Farming Simulator 25", "Fatal Frame: Maiden of Black Water", "Final Fantasy VII Rebirth", "Final Fantasy XVI", "Finding Frankie", "Five Nights at Freddy's", "Five Nights at Freddy's: Security Breach", "Forager", "Forza Horizon 4", "Forza Horizon 5", "Fran Bow", "Friday the 13th: The Game", "Frostpunk", "Frostpunk 2", "Garry's Mod", "Gears 5", "Geometry Dash", "Ghostrunner", "Ghostwire: Tokyo", "Goat Simulator", "God of War", "God of War: Ragnarök", "Gotham Knights", "Gothic 3", "Grand Theft Auto IV: Complete Edition", "Grand Theft Auto V", "Grand Theft Auto: San Andreas", "Grand Theft Auto: Vice City", "Green Hell", "GRID", "GRID 2", "GRID Autosport", "Grounded", "Gunfire Reborn", "Hades", "Hades II", "Half-Life", "Half-Life 2", "Half-Life: Blue Shift", "Half-Life: Opposing Force", "Halo: The Master Chief Collection", "Hearts of Iron IV", "Heavy Rain", "Hellblade: Senua's Sacrifice", "Hello Neighbor", "Hitman 2", "Hitman: World of Assassination", "Hitman: Absolution", "Hogwarts Legacy", "Hollow Knight", "Hollow Knight: Silksong", "Horizon Zero Dawn", "Hotline Miami", "Hotline Miami 2: Wrong Number", "House Flipper", "Human: Fall Flat", "Icarus", "Injustice 2", "Injustice: Gods Among Us", "Inscryption", "Inside", "Internet Cafe Simulator 2", "It Takes Two", "Japanese Drift Master", "Journey", "Jujutsu Kaisen Cursed Clash", "Jump King", "Jurassic World Evolution", "Just Cause 3", "Katana Zero", "Kena: Bridge of Spirits", "Kenshi", "Kerbal Space Program", "Killing Floor 2", "Kingdom Come: Deliverance", "Kingdom Come: Deliverance II", "Left 4 Dead", "Left 4 Dead 2", "LEGO Batman 2: DC Super Heroes", "LEGO Batman 3: Beyond Gotham", "LEGO City Undercover", "LEGO Jurassic World", "LEGO Marvel Super Heroes", "LEGO: The Lord of the Rings", "LEGO Star Wars: The Complete Saga", "Lethal Company", "Level Zero: Extraction", "Liar's Bar", "Lies of P", "Life is Strange: Remastered Collection", "Life is Strange 2", "Life is Strange: True Colors", "Like a Dragon: Pirate Yakuza in Hawaii", "Limbo", "Little Nightmares", "Little Nightmares II", "Lords of the Fallen", "Lossless Scaling", "Lost Soul Aside", "Mad Max", "Mafia: Definitive Edition", "Mafia II: Definitive Edition", "Mafia III: Definitive Edition", "Mafia: The Old Country", "Maneater", "Manor Lords", "Martha is Dead", "Marvel's Avengers", "Marvel's Midnight Suns", "Marvel's Spider-Man: Miles Morales", "Marvel's Spider-Man Remastered", "Mass Effect Legendary Edition", "Medieval Dynasty", "Metal Gear Solid V: The Phantom Pain", "Metaphor: ReFantazio", "Metro 2033 Redux", "Metro Exodus", "Metro: Last Light Redux", "Microsoft Flight Simulator 2020", "Middle-earth: Shadow of War", "Minecraft Dungeons", "Minecraft Legends", "Mirror's Edge", "MiSide", "Monster Hunter Rise", "Monster Hunter Wilds", "Monster Hunter: World", "Mordhau", "Mortal Kombat 9: Komplete Edition", "Mortal Kombat X", "Mortal Kombat 11", "Mortal Kombat 1", "Mortal Shell", "Mount & Blade II: Bannerlord", "MudRunner", "My Summer Car", "My Time at Sandrock", "Naruto Shippuden: Ultimate Ninja Storm 4", "NBA 2K24", "NBA 2K25", "Needy Streamer Overload", "NieR Replicant", "NieR: Automata", "Ninja Gaiden 2 Black", "Ninja Gaiden: Master Collection", "Nioh 2: The Complete Edition", "Nioh: Complete Edition", "No Man's Sky", "Northgard", "Octopath Traveler II", "Omori", "Ori and the Blind Forest: Definitive Edition", "Ori and the Will of the Wisps", "Outlast", "Outlast 2", "Overcooked! 2", "Oxygen Not Included", "Pacific Drive", "Pacify", "Paint the Town Red", "Palworld", "Payday 2", "PC Building Simulator", "PEAK", "People Playground", "Persona 4 Golden", "Persona 5 Royal", "Phasmophobia", "Pillars of Eternity II: Deadfire", "Plague Inc: Evolved", "Planet Coaster", "Planet Crafter", "Planet Zoo", "Poppy Playtime", "Portal", "Portal 2", "Postal 2", "Prey", "Prison Architect", "Project CARS 2", "Project Hospital", "Project Zomboid", "Prototype", "Prototype 2", "Pummel Party", "R.E.P.O.", "Raft", "Rage", "Rain World", "Ranch Simulator", "Ratchet & Clank: Rift Apart", "Ravenfield", "Ready or Not", "Red Dead Redemption 2", "Resident Evil", "Resident Evil 2", "Resident Evil 3", "Resident Evil 4 Remake", "Resident Evil 5", "Resident Evil 6", "Resident Evil 7: Biohazard", "Resident Evil Village", "Resident Evil: Revelations 2", "Resident Evil Zero", "Resident Evil: Requiem", "RimWorld", "Rise of the Tomb Raider", "Risk of Rain 2", "RoboCop: Rogue City", "Rocket League", "Rust", "Ryse: Son of Rome", "S.T.A.L.K.E.R. 2: Heart of Chornobyl", "S.T.A.L.K.E.R.: Shadow of Chornobyl", "Sackboy: A Big Adventure", "Saints Row IV", "Saints Row: The Third", "Satisfactory", "Schedule I", "Scrap Mechanic", "Sekiro: Shadows Die Twice", "Serial Cleaner", "Serious Sam 4", "Session: Skate Sim", "Shadow of the Tomb Raider", "Shadows of Doubt", "Ship of Fools", "Shovel Knight: Treasure Trove", "Sid Meier's Civilization VI", "Sifu", "Silent Hill 2", "Skater XL", "Skul: The Hero Slayer", "Slay the Spire", "Sleeping Dogs: Definitive Edition", "Slime Rancher 2", "Sniper Elite 5", "Sonic Frontiers", "Sons of the Forest", "Soulmask", "South Park: The Stick of Truth", "Space Engineers", "Spelunky 2", "Spiritfarer", "Spore", "Spyro Reignited Trilogy", "Star Wars: KOTOR II", "Stardew Valley", "State of Decay 2", "Stellar Blade", "Stick Fight: The Game", "Stray", "Streamer Life Simulator 2", "Street Fighter 6", "Street Fighter V", "Subnautica", "Subnautica: Below Zero", "Super Meat Boy", "Superhot", "Superhot: Mind Control Delete", "Supermarket Simulator", "Supraland", "Surgeon Simulator 2", "Tabletop Simulator", "Tales of Arise", "Teardown", "TMNT: Shredder's Revenge", "Tekken 7", "Tekken 8", "Terraria", "The Alters", "The Binding of Isaac: Rebirth", "The Callisto Protocol", "The Dark Pictures: House of Ashes", "The Elder Scrolls IV: Oblivion GOTY", "The Elder Scrolls V: Skyrim Special Edition", "The Escapists 2", "The Evil Within 2", "The First Berserker: Khazan", "The Forest", "The Henry Stickmin Collection", "The Last of Us Part I", "The Last of Us Part II Remastered", "The Long Dark", "The Long Drive", "The Medium", "The Outlast Trials", "The Quarry", "The Stanley Parable: Ultra Deluxe", "The Texas Chain Saw Massacre", "The Walking Dead: Definitive Series", "The Witcher 2: Assassins of Kings EE", "The Witcher 3: Wild Hunt", "theHunter: Call of the Wild", "They Are Billions", "This War of Mine", "Thronefall", "Titan Quest Anniversary Edition", "Tomb Raider (2013)", "Total War: Shogun 2", "Totally Accurate Battle Simulator", "Tropico 6", "Ultimate Chicken Horse", "Ultrakill", "Uncharted: Legacy of Thieves Collection", "Undertale", "Universe Sandbox", "Untitled Goose Game", "V Rising", "Valheim", "Vampire Survivors", "Vampyr", "Victoria 3", "Visage", "Wallpaper Engine", "Watch Dogs: Legion", "Witchfire", "Wo Long: Fallen Dynasty", "Wolfenstein II: The New Colossus", "World War Z: Aftermath", "WorldBox - God Simulator", "Worms W.M.D", "Wuchang: Fallen Feathers", "WWE 2K23", "X4: Foundations", "XCOM 2", "Yakuza 0", "Yakuza Kiwami", "Zero Sievert", "Zombie Army 4: Dead War"];
+const JUEGOS_DESTACADOS = ["Black Myth: Wukong", "Elden Ring", "Monster Hunter Wilds", "Cyberpunk 2077", "Baldur's Gate 3", "Red Dead Redemption 2", "Hogwarts Legacy", "S.T.A.L.K.E.R. 2: Heart of Chornobyl", "Palworld", "Grand Theft Auto V", "Tekken 8", "Mortal Kombat 1", "Street Fighter 6", "Lethal Company", "Marvel's Spider-Man Remastered", "God of War: Ragnarök", "Sekiro: Shadows Die Twice", "Dead Space Remake", "Resident Evil Village", "Elden Ring: Nightreign"];
+const STEAM_IDS = {
+  "112 Operator": 793460,
+  "60 Seconds! Reatomized": 1012820,
+  "7 Days to Die": 251570,
+  "911 Operator": 503560,
+  "A Dance of Fire and Ice": 977950,
+  "A Plague Tale: Requiem": 1182900,
+  "A Story About My Uncle": 278920,
+  "Abiotic Factor": 1340820,
+  "ACE COMBAT 7: SKIES UNKNOWN": 502500,
+  "Against the Storm": 1810810,
+  "Age of Empires II: Definitive Edition": 813780,
+  "Age of Mythology: Retold": 1934680,
+  "Alan Wake": 108710,
+  "Alien: Isolation": 214490,
+  "Alone in the Dark": 548090,
+  "American Truck Simulator": 270880,
+  "Amnesia: Rebirth": 999220,
+  "Amnesia: The Dark Descent": 57300,
+  "Among Us": 945360,
+  "ARK: Survival Ascended": 2399830,
+  "ARK: Survival Evolved": 346110,
+  "Arma 3": 107410,
+  "Assassin's Creed IV: Black Flag": 242050,
+  "Assassin's Creed Mirage": 2054890,
+  "Assassin's Creed Odyssey": 812140,
+  "Assassin's Creed Origins": 582160,
+  "Assetto Corsa": 244210,
+  "Assetto Corsa Competizione": 805550,
+  "Atelier Ryza 2: Lost Legends & the Secret Fairy": 1371820,
+  "Atomic Heart": 668580,
+  "Attack on Titan 2": 613581,
+  "Automobilista 2": 1066890,
+  "Avowed": 2457220,
+  "Bad Guys at School": 1050470,
+  "Balatro": 2379780,
+  "Baldur's Gate 3": 1086940,
+  "Baldur's Gate II: Enhanced Edition": 257350,
+  "Batman: Arkham Asylum GOTY": 35140,
+  "Batman: Arkham City GOTY": 200260,
+  "Batman: Arkham Knight": 208650,
+  "Batman: Arkham Origins": 209000,
+  "Battlefield: Bad Company 2": 1238810,
+  "BeamNG.drive": 284160,
+  "Beholder": 475550,
+  "Bendy and the Dark Revival": 1315200,
+  "Bendy and the Ink Machine": 622100,
+  "Beyond: Two Souls": 1117790,
+  "Biker Garage: Mechanic Simulator": 845370,
+  "BioShock Remastered": 409710,
+  "BioShock 2 Remastered": 8850,
+  "BioShock Infinite": 49520,
+  "Black Desert Online": 1292030,
+  "Black Mesa": 362890,
+  "Black Myth: Wukong": 2358720,
+  "Blair Witch": 1288310,
+  "Bloodstained: Ritual of the Night": 692850,
+  "Bloons TD 6": 960090,
+  "Borderlands 2": 49520,
+  "Borderlands 3": 397540,
+  "Borderlands: The Pre-Sequel": 261640,
+  "Bright Memory: Infinite": 1178041,
+  "Broforce": 274190,
+  "Brotato": 1942280,
+  "Brothers: A Tale of Two Sons": 225080,
+  "Buckshot Roulette": 2585970,
+  "Bulletstorm: Full Clip Edition": 501590,
+  "Bully: Scholarship Edition": 12200,
+  "Bus Simulator 21 Next Stop": 1222790,
+  "Call of Duty: Black Ops": 42700,
+  "Call of Duty: Black Ops II": 202970,
+  "Call of Duty: Black Ops III": 311210,
+  "Call of Duty: Ghosts": 209160,
+  "Call of Duty: Infinite Warfare": 292730,
+  "Call of Duty: Modern Warfare 2 (2009)": 10180,
+  "Call of Duty: Modern Warfare 3 (2011)": 115300,
+  "Call of Duty: Modern Warfare Remastered": 393080,
+  "Call of Duty: World at War": 10090,
+  "Call of Duty: WWII": 476600,
+  "Call of Juarez: Gunslinger": 204880,
+  "Car For Sale Simulator 2023": 1638320,
+  "Car Mechanic Simulator 2021": 1190000,
+  "Castle Crashers": 204360,
+  "Celeste": 504230,
+  "Chained Together": 2717640,
+  "Choo-Choo Charles": 1766740,
+  "Cities: Skylines": 255710,
+  "City Car Driving": 493490,
+  "Clair Obscur: Expedition 33": 2835570,
+  "Clone Drone in the Danger Zone": 397610,
+  "CODE VEIN": 678960,
+  "Coffee Talk": 914800,
+  "Command & Conquer: Red Alert 3": 17480,
+  "Company of Heroes": 228200,
+  "Conan Exiles": 440900,
+  "Construction Simulator": 1273400,
+  "Content Warning": 2881650,
+  "Control: Ultimate Edition": 870780,
+  "Cookie Clicker": 1454400,
+  "Counter-Strike 1.6": 10,
+  "Counter-Strike: Source": 240,
+  "Crime Scene Cleaner": 2663580,
+  "Crusader Kings II": 203770,
+  "Cult of the Lamb": 1313140,
+  "Cuphead": 268910,
+  "Cyberpunk 2077": 1091500,
+  "Danganronpa: Trigger Happy Havoc": 413410,
+  "Danganronpa 2: Goodbye Despair": 413420,
+  "Dark Souls: Remastered": 570940,
+  "Dark Souls II: Scholar of the First Sin": 335300,
+  "Dark Souls III": 374320,
+  "Darkest Dungeon": 262060,
+  "Darksiders: Warmastered Edition": 462780,
+  "Darksiders II: Deathinitive Edition": 388410,
+  "Darksiders III": 606280,
+  "Dave the Diver": 1868140,
+  "Dawn of Man": 858810,
+  "Days Gone": 1259420,
+  "Dead Cells": 588650,
+  "Dead Island Definitive Edition": 383150,
+  "Dead Island: Riptide Definitive Edition": 383180,
+  "Dead Rising 2": 45740,
+  "Dead Space Remake": 1693980,
+  "Dead Space 2": 47780,
+  "Deadlock": 1422450,
+  "Death Stranding": 1190460,
+  "Deep Rock Galactic": 548430,
+  "Deltarune": 1671210,
+  "Demon Slayer: The Hinokami Chronicles": 1490890,
+  "Destiny 2": 1085660,
+  "Detroit: Become Human": 1222730,
+  "Deus Ex: Human Revolution": 28050,
+  "Devil May Cry 5": 601150,
+  "Devil May Cry HD Collection": 631510,
+  "Devour": 1274570,
+  "Dirt Rally 2.0": 690790,
+  "Dirt 5": 1259380,
+  "Dishonored": 205100,
+  "Dishonored 2": 403640,
+  "Divinity: Original Sin 2 - Definitive Edition": 435150,
+  "Don't Starve Together": 322330,
+  "DOOM (2016)": 379720,
+  "DOOM Eternal": 782330,
+  "DOOM: The Dark Ages": 2835570,
+  "Dragon Ball FighterZ": 678950,
+  "Dragon Ball: Sparking! Zero": 1790600,
+  "Drug Dealer Simulator 2": 1929000,
+  "Dune: Awakening": 1172710,
+  "Dying Light": 239140,
+  "Dying Light 2: Reloaded Edition": 534380,
+  "Dynasty Warriors: Origins": 2683450,
+  "Dyson Sphere Program": 1366540,
+  "eFootball PES 2021": 1313360,
+  "Elden Ring": 1245620,
+  "Elden Ring: Nightreign": 2933620,
+  "ELEX": 411300,
+  "ELEX II": 1361510,
+  "Empires of the Undergrowth": 463530,
+  "Escape Simulator": 1433360,
+  "Escape the Backrooms": 1943950,
+  "Euro Truck Simulator 2": 227300,
+  "F1 2020": 1108680,
+  "F1 2021": 1259380,
+  "Factorio": 427520,
+  "Fallout: A Post Nuclear RPG": 38400,
+  "Fallout 2": 38410,
+  "Fallout 4": 377160,
+  "Fallout 76": 1151340,
+  "Fallout: New Vegas": 22380,
+  "Far Cry 3": 220240,
+  "Far Cry 3: Blood Dragon": 233270,
+  "Far Cry 4": 298110,
+  "Far Cry 5": 552520,
+  "Far Cry Primal": 371660,
+  "Farming Simulator 22": 1248130,
+  "Farming Simulator 25": 2300320,
+  "Fatal Frame: Maiden of Black Water": 1388840,
+  "Final Fantasy VII Rebirth": 2909400,
+  "Final Fantasy XVI": 1971650,
+  "Finding Frankie": 2684330,
+  "Five Nights at Freddy's": 319510,
+  "Five Nights at Freddy's: Security Breach": 747100,
+  "Forager": 751780,
+  "Forza Horizon 4": 1293830,
+  "Forza Horizon 5": 1551360,
+  "Fran Bow": 427660,
+  "Friday the 13th: The Game": 438740,
+  "Frostpunk": 323190,
+  "Frostpunk 2": 1473960,
+  "Garry's Mod": 4000,
+  "Gears 5": 1097840,
+  "Geometry Dash": 322170,
+  "Ghostrunner": 1139900,
+  "Ghostwire: Tokyo": 1475810,
+  "Goat Simulator": 265930,
+  "God of War": 1593500,
+  "God of War: Ragnar\u00f6k": 2322010,
+  "Gotham Knights": 1496790,
+  "Gothic 3": 39510,
+  "Grand Theft Auto IV: Complete Edition": 12210,
+  "Grand Theft Auto V": 271590,
+  "Grand Theft Auto: San Andreas": 12120,
+  "Grand Theft Auto: Vice City": 12110,
+  "Green Hell": 815370,
+  "GRID": 1228611,
+  "GRID 2": 245870,
+  "GRID Autosport": 255220,
+  "Grounded": 962130,
+  "Gunfire Reborn": 1217060,
+  "Hades": 1145360,
+  "Hades II": 1145350,
+  "Half-Life": 70,
+  "Half-Life 2": 220,
+  "Half-Life: Blue Shift": 130,
+  "Half-Life: Opposing Force": 50,
+  "Halo: The Master Chief Collection": 976730,
+  "Hearts of Iron IV": 394360,
+  "Heavy Rain": 960910,
+  "Hellblade: Senua's Sacrifice": 414340,
+  "Hello Neighbor": 756570,
+  "Hitman 2": 863550,
+  "Hitman: World of Assassination": 1659040,
+  "Hitman: Absolution": 203140,
+  "Hogwarts Legacy": 990080,
+  "Hollow Knight": 367520,
+  "Hollow Knight: Silksong": 1030300,
+  "Horizon Zero Dawn": 1151640,
+  "Hotline Miami": 219150,
+  "Hotline Miami 2: Wrong Number": 274170,
+  "House Flipper": 613100,
+  "Human: Fall Flat": 477160,
+  "Icarus": 1066780,
+  "Injustice 2": 575630,
+  "Injustice: Gods Among Us": 242700,
+  "Inscryption": 1092790,
+  "Inside": 304430,
+  "Internet Cafe Simulator 2": 1558530,
+  "It Takes Two": 1426210,
+  "Japanese Drift Master": 1489830,
+  "Journey": 638230,
+  "Jujutsu Kaisen Cursed Clash": 1825770,
+  "Jump King": 1061090,
+  "Jurassic World Evolution": 648350,
+  "Just Cause 3": 225540,
+  "Katana Zero": 996010,
+  "Kena: Bridge of Spirits": 1954200,
+  "Kenshi": 233860,
+  "Kerbal Space Program": 220200,
+  "Killing Floor 2": 232090,
+  "Kingdom Come: Deliverance": 379430,
+  "Kingdom Come: Deliverance II": 1771300,
+  "Left 4 Dead": 500,
+  "Left 4 Dead 2": 550,
+  "LEGO Batman 2: DC Super Heroes": 214710,
+  "LEGO Batman 3: Beyond Gotham": 363080,
+  "LEGO City Undercover": 578330,
+  "LEGO Jurassic World": 352400,
+  "LEGO Marvel Super Heroes": 249130,
+  "LEGO: The Lord of the Rings": 214770,
+  "LEGO Star Wars: The Complete Saga": 32200,
+  "Lethal Company": 1966720,
+  "Level Zero: Extraction": 1709350,
+  "Liar's Bar": 3097560,
+  "Lies of P": 1627720,
+  "Life is Strange: Remastered Collection": 936790,
+  "Life is Strange 2": 532210,
+  "Life is Strange: True Colors": 936790,
+  "Like a Dragon: Pirate Yakuza in Hawaii": 2737350,
+  "Limbo": 48000,
+  "Little Nightmares": 424840,
+  "Little Nightmares II": 860510,
+  "Lords of the Fallen": 1501750,
+  "Lossless Scaling": 993090,
+  "Lost Soul Aside": 355530,
+  "Mad Max": 234140,
+  "Mafia: Definitive Edition": 1030840,
+  "Mafia II: Definitive Edition": 50130,
+  "Mafia III: Definitive Edition": 360430,
+  "Mafia: The Old Country": 2973810,
+  "Maneater": 1318480,
+  "Manor Lords": 1363080,
+  "Martha is Dead": 1477000,
+  "Marvel's Avengers": 997070,
+  "Marvel's Midnight Suns": 368260,
+  "Marvel's Spider-Man: Miles Morales": 1817190,
+  "Marvel's Spider-Man Remastered": 1817070,
+  "Mass Effect Legendary Edition": 1328670,
+  "Medieval Dynasty": 1129580,
+  "Metal Gear Solid V: The Phantom Pain": 287700,
+  "Metaphor: ReFantazio": 2679460,
+  "Metro 2033 Redux": 286690,
+  "Metro Exodus": 412020,
+  "Metro: Last Light Redux": 287390,
+  "Microsoft Flight Simulator 2020": 1250410,
+  "Middle-earth: Shadow of War": 356190,
+  "Minecraft Dungeons": 1672970,
+  "Minecraft Legends": 1628350,
+  "Mirror's Edge": 17410,
+  "MiSide": 2527500,
+  "Monster Hunter Rise": 1446780,
+  "Monster Hunter Wilds": 2246340,
+  "Monster Hunter: World": 582010,
+  "Mordhau": 629760,
+  "Mortal Kombat 9: Komplete Edition": 237110,
+  "Mortal Kombat X": 307780,
+  "Mortal Kombat 11": 976310,
+  "Mortal Kombat 1": 1971870,
+  "Mortal Shell": 1110910,
+  "Mount & Blade II: Bannerlord": 261550,
+  "MudRunner": 675010,
+  "My Summer Car": 516750,
+  "My Time at Sandrock": 1501180,
+  "Naruto Shippuden: Ultimate Ninja Storm 4": 349040,
+  "NBA 2K24": 2338770,
+  "NBA 2K25": 2694900,
+  "Needy Streamer Overload": 1451940,
+  "NieR Replicant": 1113560,
+  "NieR: Automata": 524220,
+  "Ninja Gaiden 2 Black": 3498660,
+  "Ninja Gaiden: Master Collection": 1448440,
+  "Nioh 2: The Complete Edition": 1325200,
+  "Nioh: Complete Edition": 485510,
+  "No Man's Sky": 275850,
+  "Northgard": 744920,
+  "Octopath Traveler II": 1672440,
+  "Omori": 1150690,
+  "Ori and the Blind Forest: Definitive Edition": 387290,
+  "Ori and the Will of the Wisps": 1057090,
+  "Outlast": 238320,
+  "Outlast 2": 414700,
+  "Overcooked! 2": 728880,
+  "Oxygen Not Included": 457140,
+  "Pacific Drive": 1458140,
+  "Pacify": 967050,
+  "Paint the Town Red": 595280,
+  "Palworld": 1623730,
+  "Payday 2": 218620,
+  "PC Building Simulator": 621060,
+  "PEAK": 3200010,
+  "People Playground": 1118200,
+  "Persona 4 Golden": 1113000,
+  "Persona 5 Royal": 1687950,
+  "Phasmophobia": 739630,
+  "Pillars of Eternity II: Deadfire": 560130,
+  "Plague Inc: Evolved": 246900,
+  "Planet Coaster": 493340,
+  "Planet Crafter": 1284190,
+  "Planet Zoo": 703080,
+  "Poppy Playtime": 1721470,
+  "Portal": 400,
+  "Portal 2": 620,
+  "Postal 2": 223470,
+  "Prey": 480490,
+  "Prison Architect": 233450,
+  "Project CARS 2": 378860,
+  "Project Hospital": 1089640,
+  "Project Zomboid": 108600,
+  "Prototype": 10150,
+  "Prototype 2": 214630,
+  "Pummel Party": 880940,
+  "R.E.P.O.": 3527290,
+  "Raft": 648800,
+  "Rage": 9200,
+  "Rain World": 312520,
+  "Ranch Simulator": 1119730,
+  "Ratchet & Clank: Rift Apart": 1895840,
+  "Ravenfield": 636480,
+  "Ready or Not": 1144200,
+  "Red Dead Redemption 2": 1174180,
+  "Resident Evil": 304240,
+  "Resident Evil 2": 883710,
+  "Resident Evil 3": 952060,
+  "Resident Evil 4 Remake": 2050650,
+  "Resident Evil 5": 359530,
+  "Resident Evil 6": 221040,
+  "Resident Evil 7: Biohazard": 418370,
+  "Resident Evil Village": 1196590,
+  "Resident Evil: Revelations 2": 287290,
+  "Resident Evil Zero": 359630,
+  "Resident Evil: Requiem": 2971480,
+  "RimWorld": 294100,
+  "Rise of the Tomb Raider": 391220,
+  "Risk of Rain 2": 632360,
+  "RoboCop: Rogue City": 1681430,
+  "Rocket League": 252950,
+  "Rust": 252490,
+  "Ryse: Son of Rome": 302510,
+  "S.T.A.L.K.E.R. 2: Heart of Chornobyl": 1643320,
+  "S.T.A.L.K.E.R.: Shadow of Chornobyl": 6910,
+  "Sackboy: A Big Adventure": 1599250,
+  "Saints Row IV": 206420,
+  "Saints Row: The Third": 55230,
+  "Satisfactory": 526870,
+  "Schedule I": 3527290,
+  "Scrap Mechanic": 387990,
+  "Sekiro: Shadows Die Twice": 814380,
+  "Serial Cleaner": 549090,
+  "Serious Sam 4": 1310400,
+  "Session: Skate Sim": 861650,
+  "Shadow of the Tomb Raider": 750920,
+  "Shadows of Doubt": 986130,
+  "Ship of Fools": 1719570,
+  "Shovel Knight: Treasure Trove": 250760,
+  "Sid Meier's Civilization VI": 289070,
+  "Sifu": 1468240,
+  "Silent Hill 2": 2124490,
+  "Skater XL": 962640,
+  "Skul: The Hero Slayer": 1147560,
+  "Slay the Spire": 646570,
+  "Sleeping Dogs: Definitive Edition": 307690,
+  "Slime Rancher 2": 1657630,
+  "Sniper Elite 5": 1029690,
+  "Sonic Frontiers": 1237320,
+  "Sons of the Forest": 1326470,
+  "Soulmask": 2646460,
+  "South Park: The Stick of Truth": 213670,
+  "Space Engineers": 244850,
+  "Spelunky 2": 1347890,
+  "Spiritfarer": 972660,
+  "Spore": 17390,
+  "Spyro Reignited Trilogy": 996580,
+  "Star Wars: KOTOR II": 208580,
+  "Stardew Valley": 413150,
+  "State of Decay 2": 495420,
+  "Stellar Blade": 3489700,
+  "Stick Fight: The Game": 674940,
+  "Stray": 1597330,
+  "Streamer Life Simulator 2": 2079640,
+  "Street Fighter 6": 1364780,
+  "Street Fighter V": 310950,
+  "Subnautica": 264710,
+  "Subnautica: Below Zero": 848450,
+  "Super Meat Boy": 40800,
+  "Superhot": 617830,
+  "Superhot: Mind Control Delete": 690040,
+  "Supermarket Simulator": 2670630,
+  "Supraland": 813630,
+  "Surgeon Simulator 2": 1297400,
+  "Tabletop Simulator": 286160,
+  "Tales of Arise": 1365510,
+  "Teardown": 1167630,
+  "TMNT: Shredder's Revenge": 1361510,
+  "Tekken 7": 389730,
+  "Tekken 8": 1778820,
+  "Terraria": 105600,
+  "The Alters": 2475490,
+  "The Binding of Isaac: Rebirth": 250900,
+  "The Callisto Protocol": 1272430,
+  "The Dark Pictures: House of Ashes": 1458140,
+  "The Elder Scrolls IV: Oblivion GOTY": 22330,
+  "The Elder Scrolls V: Skyrim Special Edition": 489830,
+  "The Escapists 2": 641990,
+  "The Evil Within 2": 601430,
+  "The First Berserker: Khazan": 2835730,
+  "The Forest": 242760,
+  "The Henry Stickmin Collection": 1089090,
+  "The Last of Us Part I": 1888930,
+  "The Last of Us Part II Remastered": 2531310,
+  "The Long Dark": 305620,
+  "The Long Drive": 1164950,
+  "The Medium": 1293160,
+  "The Outlast Trials": 1304930,
+  "The Quarry": 1845640,
+  "The Stanley Parable: Ultra Deluxe": 1011130,
+  "The Texas Chain Saw Massacre": 1974740,
+  "The Walking Dead: Definitive Series": 1449690,
+  "The Witcher 2: Assassins of Kings EE": 20920,
+  "The Witcher 3: Wild Hunt": 292030,
+  "theHunter: Call of the Wild": 518790,
+  "They Are Billions": 644930,
+  "This War of Mine": 282070,
+  "Thronefall": 2239150,
+  "Titan Quest Anniversary Edition": 475150,
+  "Tomb Raider (2013)": 203160,
+  "Total War: Shogun 2": 34330,
+  "Totally Accurate Battle Simulator": 508440,
+  "Tropico 6": 489510,
+  "Ultimate Chicken Horse": 386940,
+  "Ultrakill": 1229490,
+  "Uncharted: Legacy of Thieves Collection": 1659420,
+  "Undertale": 391540,
+  "Universe Sandbox": 230290,
+  "Untitled Goose Game": 837470,
+  "V Rising": 1604030,
+  "Valheim": 892970,
+  "Vampire Survivors": 1794680,
+  "Vampyr": 427290,
+  "Victoria 3": 529340,
+  "Visage": 594330,
+  "Wallpaper Engine": 431960,
+  "Watch Dogs: Legion": 2035850,
+  "Witchfire": 1341300,
+  "Wo Long: Fallen Dynasty": 1880360,
+  "Wolfenstein II: The New Colossus": 612880,
+  "World War Z: Aftermath": 1118560,
+  "WorldBox - God Simulator": 1206560,
+  "Worms W.M.D": 327030,
+  "Wuchang: Fallen Feathers": 3017860,
+  "WWE 2K23": 2139490,
+  "X4: Foundations": 392160,
+  "XCOM 2": 268500,
+  "Yakuza 0": 638970,
+  "Yakuza Kiwami": 834530,
+  "Zero Sievert": 1819020,
+  "Zombie Army 4: Dead War": 694280
+};
+ 
+ 
+// ── LÓGICA ─────────────────────────────────────────────
 const catalogoOrdenado = [
     ...JUEGOS_DESTACADOS.filter(j => CATALOGO_NOMBRES.includes(j)),
     ...CATALOGO_NOMBRES.filter(j => !JUEGOS_DESTACADOS.includes(j))
 ];
-
-// ── ESTADO ──
+ 
 let filtrados = [...catalogoOrdenado];
 let pagActual = 1;
 const POR_PAG = 20;
 let buscando  = false;
 let debounce;
-
-// ── DOM ──
-const grid       = document.getElementById('contenedor-juegos');
-const inputSearch= document.getElementById('input-busqueda');
-const dirGrid    = document.getElementById('lista-texto-inferior');
-const toastCont  = document.getElementById('toast-container');
-const paginaCont = document.getElementById('paginacion');
-const resInfo    = document.getElementById('results-info');
-const secTitle   = document.getElementById('section-title');
-const cartEl     = document.getElementById('cart-counter');
-
-// ── IMAGEN UTILS ──
-function getCover(n){
-    const id = STEAM_IDS[n];
-    return id ? `https://steamcdn-a.akamaihd.net/steam/apps/${id}/library_600x900_2x.jpg` : null;
+ 
+const grid        = document.getElementById('contenedor-juegos');
+const inputSearch = document.getElementById('input-busqueda');
+const dirGrid     = document.getElementById('lista-texto-inferior');
+const toastCont   = document.getElementById('toast-container');
+const paginaCont  = document.getElementById('paginacion');
+const resInfo     = document.getElementById('results-info');
+const secTitle    = document.getElementById('section-title');
+const cartEl      = document.getElementById('cart-counter');
+ 
+function getImgUrl(nombre) {
+    const id = STEAM_IDS[nombre];
+    if (!id) return null;
+    return {
+        cover:   `https://steamcdn-a.akamaihd.net/steam/apps/${id}/library_600x900_2x.jpg`,
+        header:  `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`,
+        capsule: `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/capsule_616x353.jpg`,
+    };
 }
-function getHeader(n){
-    const id = STEAM_IDS[n];
-    return id ? `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg` : null;
-}
-function getCapsule(n){
-    const id = STEAM_IDS[n];
-    return id ? `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/capsule_616x353.jpg` : null;
-}
-
-// ── DIRECTORIO ──
-function renderDirectorio(lista){
+ 
+function renderDirectorio(lista) {
     dirGrid.innerHTML = lista.map(n => `<div class="directory-item">${n}</div>`).join('');
 }
-
-// ── CARDS ──
-function renderJuegos(){
+ 
+function renderJuegos() {
     const tanda = buscando
         ? filtrados
         : filtrados.slice((pagActual-1)*POR_PAG, pagActual*POR_PAG);
-
-    if(!tanda.length){
+ 
+    if (!tanda.length) {
         grid.innerHTML = `<div class="no-results"><div class="nr-icon">🔍</div><h3>Sin resultados</h3><p>Probá con otro nombre.</p></div>`;
         renderPaginacion(); return;
     }
-
+ 
     grid.innerHTML = '';
     tanda.forEach((nombre, i) => {
-        const cover   = getCover(nombre);
-        const header  = getHeader(nombre);
-        const capsule = getCapsule(nombre);
-        const appID   = STEAM_IDS[nombre];
-
-        const card = document.createElement('div');
+        const img   = getImgUrl(nombre);
+        const appID = STEAM_IDS[nombre];
+        const card  = document.createElement('div');
         card.className = 'game-card';
         card.style.animationDelay = `${i * 0.025}s`;
-
-        // Imagen con 3 fallbacks: portrait → header → capsule → placeholder
-        const imgTag = cover
-            ? `<img src="${cover}" alt="${nombre.replace(/"/g,'&quot;')}" loading="lazy"
-                 onerror="(function(el){
-                   el.onerror=null;
-                   el.onerror=function(){
-                     el.onerror=null;
-                     ${capsule ? `el.src='${capsule}';el.onerror=function(){el.style.display='none';el.nextElementSibling.style.display='flex'};` : `el.style.display='none';el.nextElementSibling.style.display='flex';`}
-                   };
-                   el.src='${header}';
-                 })(this)">`
-            : '';
-
+ 
+        // 3-step image fallback
+        const imgTag = img ? `<img
+            src="${img.cover}"
+            alt="${nombre.replace(/"/g,'&quot;')}"
+            loading="lazy"
+            onerror="(function(el){
+                el.onerror=null;
+                el.onerror=function(){
+                    el.onerror=null;
+                    el.src='${img.capsule}';
+                    el.onerror=function(){
+                        el.style.display='none';
+                        el.nextElementSibling.style.display='flex';
+                    };
+                };
+                el.src='${img.header}';
+            })(this)">` : '';
+ 
         card.innerHTML = `
         <div class="card-img-wrap">
-          ${imgTag}
-          <div class="img-fallback"${cover ? '' : ' style="display:flex"'}>
-            <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 10 18.5 10s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>
-            <span>${nombre.substring(0,24)}${nombre.length>24?'…':''}</span>
-          </div>
-          <div class="card-platform">
-            <svg viewBox="0 0 16 16"><path d="M.329 10.333A8.01 8.01 0 0 0 7.99 16C12.414 16 16 12.418 16 8s-3.586-8-8.009-8A8.006 8.006 0 0 0 0 7.468l.003.006 4.304 1.769A2.2 2.2 0 0 1 5.62 8.88l1.96-2.844-.001-.04a3.046 3.046 0 0 1 3.042-3.043 3.046 3.046 0 0 1 3.042 3.043 3.047 3.047 0 0 1-3.111 3.044l-2.804 2a2.223 2.223 0 0 1-3.075 2.11 2.22 2.22 0 0 1-1.312-1.568L.33 10.333Z"/></svg>
-            Steam
-          </div>
+            ${imgTag}
+            <div class="img-fallback"${img ? '' : ' style="display:flex"'}>
+                <svg viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 10 18.5 10s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>
+                <span>${nombre}</span>
+            </div>
+            <div class="card-platform">
+                <svg viewBox="0 0 16 16"><path d="M.329 10.333A8.01 8.01 0 0 0 7.99 16C12.414 16 16 12.418 16 8s-3.586-8-8.009-8A8.006 8.006 0 0 0 0 7.468l.003.006 4.304 1.769A2.2 2.2 0 0 1 5.62 8.88l1.96-2.844-.001-.04a3.046 3.046 0 0 1 3.042-3.043 3.046 3.046 0 0 1 3.042 3.043 3.047 3.047 0 0 1-3.111 3.044l-2.804 2a2.223 2.223 0 0 1-3.075 2.11 2.22 2.22 0 0 1-1.312-1.568L.33 10.333Z"/></svg>
+                Steam
+            </div>
         </div>
         <div class="info-wrapper">
-          <h3>${nombre}</h3>
-          <div class="price-row"><span class="price-label">Consultar precio</span></div>
-          <div class="card-actions">
-            <button class="btn btn-cart" data-title="${nombre.replace(/"/g,'&quot;')}">🛒 Al Carrito</button>
-            ${appID
-                ? `<a href="https://store.steampowered.com/app/${appID}" target="_blank" rel="noopener" style="text-decoration:none"><button class="btn btn-detail" style="width:100%">Ver en Steam</button></a>`
-                : `<button class="btn btn-detail">Ver Detalles</button>`
-            }
-          </div>
+            <h3>${nombre}</h3>
+            <div class="price-row"><span class="price-label">Consultar precio</span></div>
+            <div class="card-actions">
+                <button class="btn btn-cart" data-title="${nombre.replace(/"/g,'&quot;')}">🛒 Al Carrito</button>
+                ${appID
+                    ? `<a href="https://store.steampowered.com/app/${appID}" target="_blank" rel="noopener" style="text-decoration:none"><button class="btn btn-detail" style="width:100%">Ver en Steam ↗</button></a>`
+                    : `<button class="btn btn-detail">Ver Detalles</button>`
+                }
+            </div>
         </div>`;
         grid.appendChild(card);
     });
     renderPaginacion();
 }
-
-// ── PAGINACIÓN ──
-function renderPaginacion(){
+ 
+function renderPaginacion() {
     paginaCont.innerHTML = '';
-    if(buscando || filtrados.length <= POR_PAG) return;
+    if (buscando || filtrados.length <= POR_PAG) return;
     const total = Math.ceil(filtrados.length / POR_PAG);
-
+ 
     const mk = (label, pag, activo=false, disabled=false) => {
         const b = document.createElement('button');
         b.className = 'page-btn' + (activo ? ' active' : '');
         b.innerHTML = label; b.disabled = disabled;
-        if(!disabled && !activo) b.onclick = () => cambiarPagina(pag);
+        if (!disabled && !activo) b.onclick = () => cambiarPagina(pag);
         return b;
     };
     const dots = () => { const s=document.createElement('span'); s.className='page-ellipsis'; s.textContent='…'; return s; };
-
+ 
     paginaCont.appendChild(mk('«', pagActual-1, false, pagActual===1));
     const ini = Math.max(1, pagActual-2);
     const fin = Math.min(total, pagActual+2);
-    if(ini > 1){ paginaCont.appendChild(mk(1,1)); if(ini>2) paginaCont.appendChild(dots()); }
-    for(let i=ini; i<=fin; i++) paginaCont.appendChild(mk(i, i, i===pagActual));
-    if(fin < total){ if(fin<total-1) paginaCont.appendChild(dots()); paginaCont.appendChild(mk(total,total)); }
+    if (ini > 1) { paginaCont.appendChild(mk(1,1)); if (ini>2) paginaCont.appendChild(dots()); }
+    for (let i=ini; i<=fin; i++) paginaCont.appendChild(mk(i, i, i===pagActual));
+    if (fin < total) { if (fin<total-1) paginaCont.appendChild(dots()); paginaCont.appendChild(mk(total,total)); }
     paginaCont.appendChild(mk('»', pagActual+1, false, pagActual===total));
 }
-
-function cambiarPagina(p){
+ 
+function cambiarPagina(p) {
     pagActual = p;
     window.scrollTo({top:0, behavior:'smooth'});
     renderJuegos();
 }
-
-// ── BÚSQUEDA ──
-function filtrar(){
+ 
+function filtrar() {
     const q = inputSearch.value.trim().toLowerCase();
-    if(!q){
+    if (!q) {
         buscando=false; filtrados=[...catalogoOrdenado]; pagActual=1;
         secTitle.textContent='Juegos Destacados';
         resInfo.style.display='none';
@@ -530,31 +964,29 @@ function filtrar(){
     renderDirectorio(filtrados);
     renderJuegos();
 }
-inputSearch.addEventListener('input', () => { clearTimeout(debounce); debounce=setTimeout(filtrar, 150); });
-
-// ── TOAST ──
-function toast(msg){
+inputSearch.addEventListener('input', () => { clearTimeout(debounce); debounce=setTimeout(filtrar,150); });
+ 
+function toast(msg) {
     const t = document.createElement('div'); t.className='toast'; t.textContent=msg;
     toastCont.appendChild(t);
-    requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add('show')));
-    setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 350); }, 3000);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>t.classList.add('show')));
+    setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(),350); }, 3000);
 }
-
-// ── CARRITO ──
+ 
 let cartCount = 0;
 document.addEventListener('click', e => {
-    const b = e.target.closest('.btn-cart'); if(!b) return;
+    const b = e.target.closest('.btn-cart'); if (!b) return;
     cartCount++; cartEl.textContent=cartCount; cartEl.classList.add('active');
     const title = b.dataset.title;
-    toast(`🛒 ¡${title} añadido!`);
+    toast(`🛒 ¡${title} añadido al carrito!`);
     const orig = b.innerHTML;
     b.innerHTML='✓ ¡Añadido!'; b.style.background='#4caf50'; b.style.color='#fff';
-    setTimeout(() => { b.innerHTML=orig; b.style.background=''; b.style.color=''; }, 1600);
+    setTimeout(()=>{ b.innerHTML=orig; b.style.background=''; b.style.color=''; }, 1600);
 });
-
-// ── INIT ──
+ 
 renderDirectorio(filtrados);
 renderJuegos();
 </script>
 </body>
 </html>
+ 
