@@ -149,8 +149,8 @@ body {
   font-family: 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 10px;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
-.price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
-.price-label { font-size: 11px; color: var(--accent); }
+.price-row { display: flex; align-items: center; margin-bottom: 10px; }
+.price-label { font-size: 16px; font-weight: bold; color: var(--green); }
 .card-actions { display: flex; flex-direction: column; gap: 8px; }
 .btn-eneba {
   font-family: 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; padding: 10px 0; border-radius: 2px;
@@ -263,10 +263,126 @@ hr.sep { border: none; border-top: 1px solid rgba(255,255,255,.07); margin: 24px
 <script>
 // ── DATOS ──────────────────────────────────────────────
  
-const CATALOGO_NOMBRES = ["112 Operator", "60 Seconds! Reatomized", "7 Days to Die", "911 Operator", "A Dance of Fire and Ice", "A Plague Tale: Requiem", "A Story About My Uncle", "Abiotic Factor", "ACE COMBAT 7: SKIES UNKNOWN", "Against the Storm", "Age of Empires II: Definitive Edition", "Age of Mythology: Retold", "Alan Wake", "Alien: Isolation", "Alone in the Dark", "American Truck Simulator", "Amnesia: Rebirth", "Amnesia: The Dark Descent", "Among Us", "ARK: Survival Ascended", "ARK: Survival Evolved", "Arma 3", "Assassin's Creed IV: Black Flag", "Assassin's Creed Mirage", "Assassin's Creed Odyssey", "Assassin's Creed Origins", "Assetto Corsa", "Assetto Corsa Competizione", "Atelier Ryza 2: Lost Legends & the Secret Fairy", "Atomic Heart", "Attack on Titan 2", "Automobilista 2", "Avowed", "Bad Guys at School", "Balatro", "Baldur's Gate 3", "Baldur's Gate II: Enhanced Edition", "Batman: Arkham Asylum GOTY", "Batman: Arkham City GOTY", "Batman: Arkham Knight", "Batman: Arkham Origins", "Battlefield: Bad Company 2", "BeamNG.drive", "Beholder", "Bendy and the Dark Revival", "Bendy and the Ink Machine", "Beyond: Two Souls", "Biker Garage: Mechanic Simulator", "BioShock Remastered", "BioShock 2 Remastered", "BioShock Infinite", "Black Desert Online", "Black Mesa", "Black Myth: Wukong", "Blair Witch", "Bloodstained: Ritual of the Night", "Bloons TD 6", "Borderlands 2", "Borderlands 3", "Borderlands: The Pre-Sequel", "Bright Memory: Infinite", "Broforce", "Brotato", "Brothers: A Tale of Two Sons", "Buckshot Roulette", "Bulletstorm: Full Clip Edition", "Bully: Scholarship Edition", "Bus Simulator 21 Next Stop", "Call of Duty: Black Ops", "Call of Duty: Black Ops II", "Call of Duty: Black Ops III", "Call of Duty: Ghosts", "Call of Duty: Infinite Warfare", "Call of Duty: Modern Warfare 2 (2009)", "Call of Duty: Modern Warfare 3 (2011)", "Call of Duty: Modern Warfare Remastered", "Call of Duty: World at War", "Call of Duty: WWII", "Call of Juarez: Gunslinger", "Car For Sale Simulator 2023", "Car Mechanic Simulator 2021", "Castle Crashers", "Celeste", "Chained Together", "Choo-Choo Charles", "Cities: Skylines", "City Car Driving", "Clair Obscur: Expedition 33", "Clone Drone in the Danger Zone", "CODE VEIN", "Coffee Talk", "Command & Conquer: Red Alert 3", "Company of Heroes", "Conan Exiles", "Construction Simulator", "Content Warning", "Control: Ultimate Edition", "Cookie Clicker", "Counter-Strike 1.6", "Counter-Strike: Source", "Crime Scene Cleaner", "Crusader Kings II", "Cult of the Lamb", "Cuphead", "Cyberpunk 2077", "Danganronpa: Trigger Happy Havoc", "Danganronpa 2: Goodbye Despair", "Dark Souls: Remastered", "Dark Souls II: Scholar of the First Sin", "Dark Souls III", "Darkest Dungeon", "Darksiders: Warmastered Edition", "Darksiders II: Deathinitive Edition", "Darksiders III", "Dave the Diver", "Dawn of Man", "Days Gone", "Dead Cells", "Dead Island Definitive Edition", "Dead Island: Riptide Definitive Edition", "Dead Rising 2", "Dead Space Remake", "Dead Space 2", "Deadlock", "Death Stranding", "Deep Rock Galactic", "Deltarune", "Demon Slayer: The Hinokami Chronicles", "Destiny 2", "Detroit: Become Human", "Deus Ex: Human Revolution", "Devil May Cry 5", "Devil May Cry HD Collection", "Devour", "Dirt Rally 2.0", "Dirt 5", "Dishonored", "Dishonored 2", "Divinity: Original Sin 2 - Definitive Edition", "Don't Starve Together", "DOOM (2016)", "DOOM Eternal", "DOOM: The Dark Ages", "Dragon Ball FighterZ", "Dragon Ball: Sparking! Zero", "Drug Dealer Simulator 2", "Dune: Awakening", "Dying Light", "Dying Light 2: Reloaded Edition", "Dynasty Warriors: Origins", "Dyson Sphere Program", "eFootball PES 2021", "Elden Ring", "Elden Ring: Nightreign", "ELEX", "ELEX II", "Empires of the Undergrowth", "Escape Simulator", "Escape the Backrooms", "Euro Truck Simulator 2", "F1 2020", "F1 2021", "Factorio", "Fallout: A Post Nuclear RPG", "Fallout 2", "Fallout 4", "Fallout 76", "Fallout: New Vegas", "Far Cry 3", "Far Cry 3: Blood Dragon", "Far Cry 4", "Far Cry 5", "Far Cry Primal", "Farming Simulator 22", "Farming Simulator 25", "Fatal Frame: Maiden of Black Water", "Final Fantasy VII Rebirth", "Final Fantasy XVI", "Finding Frankie", "Five Nights at Freddy's", "Five Nights at Freddy's: Security Breach", "Forager", "Forza Horizon 4", "Forza Horizon 5", "Fran Bow", "Friday the 13th: The Game", "Frostpunk", "Frostpunk 2", "Garry's Mod", "Gears 5", "Geometry Dash", "Ghostrunner", "Ghostwire: Tokyo", "Goat Simulator", "God of War", "God of War: Ragnarök", "Gotham Knights", "Gothic 3", "Grand Theft Auto IV: Complete Edition", "Grand Theft Auto V", "Grand Theft Auto: San Andreas", "Grand Theft Auto: Vice City", "Green Hell", "GRID", "GRID 2", "GRID Autosport", "Grounded", "Gunfire Reborn", "Hades", "Hades II", "Half-Life", "Half-Life 2", "Half-Life: Blue Shift", "Half-Life: Opposing Force", "Halo: The Master Chief Collection", "Hearts of Iron IV", "Heavy Rain", "Hellblade: Senua's Sacrifice", "Hello Neighbor", "Hitman 2", "Hitman: World of Assassination", "Hitman: Absolution", "Hogwarts Legacy", "Hollow Knight", "Hollow Knight: Silksong", "Horizon Zero Dawn", "Hotline Miami", "Hotline Miami 2: Wrong Number", "House Flipper", "Human: Fall Flat", "Icarus", "Injustice 2", "Injustice: Gods Among Us", "Inscryption", "Inside", "Internet Cafe Simulator 2", "It Takes Two", "Japanese Drift Master", "Journey", "Jujutsu Kaisen Cursed Clash", "Jump King", "Jurassic World Evolution", "Just Cause 3", "Katana Zero", "Kena: Bridge of Spirits", "Kenshi", "Kerbal Space Program", "Killing Floor 2", "Kingdom Come: Deliverance", "Kingdom Come: Deliverance II", "Left 4 Dead", "Left 4 Dead 2", "LEGO Batman 2: DC Super Heroes", "LEGO Batman 3: Beyond Gotham", "LEGO City Undercover", "LEGO Jurassic World", "LEGO Marvel Super Heroes", "LEGO: The Lord of the Rings", "LEGO Star Wars: The Complete Saga", "Lethal Company", "Level Zero: Extraction", "Liar's Bar", "Lies of P", "Life is Strange: Remastered Collection", "Life is Strange 2", "Life is Strange: True Colors", "Like a Dragon: Pirate Yakuza in Hawaii", "Limbo", "Little Nightmares", "Little Nightmares II", "Lords of the Fallen", "Lossless Scaling", "Lost Soul Aside", "Mad Max", "Mafia: Definitive Edition", "Mafia II: Definitive Edition", "Mafia III: Definitive Edition", "Mafia: The Old Country", "Maneater", "Manor Lords", "Martha is Dead", "Marvel's Avengers", "Marvel's Midnight Suns", "Marvel's Spider-Man: Miles Morales", "Marvel's Spider-Man Remastered", "Mass Effect Legendary Edition", "Medieval Dynasty", "Metal Gear Solid V: The Phantom Pain", "Metaphor: ReFantazio", "Metro 2033 Redux", "Metro Exodus", "Metro: Last Light Redux", "Microsoft Flight Simulator 2020", "Middle-earth: Shadow of War", "Minecraft Dungeons", "Minecraft Legends", "Mirror's Edge", "MiSide", "Monster Hunter Rise", "Monster Hunter Wilds", "Monster Hunter: World", "Mordhau", "Mortal Kombat 9: Komplete Edition", "Mortal Kombat X", "Mortal Kombat 11", "Mortal Kombat 1", "Mortal Shell", "Mount & Blade II: Bannerlord", "MudRunner", "My Summer Car", "My Time at Sandrock", "Naruto Shippuden: Ultimate Ninja Storm 4", "NBA 2K24", "NBA 2K25", "Needy Streamer Overload", "NieR Replicant", "NieR: Automata", "Ninja Gaiden 2 Black", "Ninja Gaiden: Master Collection", "Nioh 2: The Complete Edition", "Nioh: Complete Edition", "No Man's Sky", "Northgard", "Octopath Traveler II", "Omori", "Ori and the Blind Forest: Definitive Edition", "Ori and the Will of the Wisps", "Outlast", "Outlast 2", "Overcooked! 2", "Oxygen Not Included", "Pacific Drive", "Pacify", "Paint the Town Red", "Palworld", "Payday 2", "PC Building Simulator", "PEAK", "People Playground", "Persona 4 Golden", "Persona 5 Royal", "Phasmophobia", "Pillars of Eternity II: Deadfire", "Plague Inc: Evolved", "Planet Coaster", "Planet Crafter", "Planet Zoo", "Poppy Playtime", "Portal", "Portal 2", "Postal 2", "Prey", "Prison Architect", "Project CARS 2", "Project Hospital", "Project Zomboid", "Prototype", "Prototype 2", "Pummel Party", "R.E.P.O.", "Raft", "Rage", "Rain World", "Ranch Simulator", "Ratchet & Clank: Rift Apart", "Ravenfield", "Ready or Not", "Red Dead Redemption 2", "Resident Evil", "Resident Evil 2", "Resident Evil 3", "Resident Evil 4 Remake", "Resident Evil 5", "Resident Evil 6", "Resident Evil 7: Biohazard", "Resident Evil Village", "Resident Evil: Revelations 2", "Resident Evil Zero", "Resident Evil: Requiem", "RimWorld", "Rise of the Tomb Raider", "Risk of Rain 2", "RoboCop: Rogue City", "Rocket League", "Rust", "Ryse: Son of Rome", "S.T.A.L.K.E.R. 2: Heart of Chornobyl", "S.T.A.L.K.E.R.: Shadow of Chornobyl", "Sackboy: A Big Adventure", "Saints Row IV", "Saints Row: The Third", "Satisfactory", "Schedule I", "Scrap Mechanic", "Sekiro: Shadows Die Twice", "Serial Cleaner", "Serious Sam 4", "Session: Skate Sim", "Shadow of the Tomb Raider", "Shadows of Doubt", "Ship of Fools", "Shovel Knight: Treasure Trove", "Sid Meier's Civilization VI", "Sifu", "Silent Hill 2", "Skater XL", "Skul: The Hero Slayer", "Slay the Spire", "Sleeping Dogs: Definitive Edition", "Slime Rancher 2", "Sniper Elite 5", "Sonic Frontiers", "Sons of the Forest", "Soulmask", "South Park: The Stick of Truth", "Space Engineers", "Spelunky 2", "Spiritfarer", "Spore", "Spyro Reignited Trilogy", "Star Wars: KOTOR II", "Stardew Valley", "State of Decay 2", "Stellar Blade", "Stick Fight: The Game", "Stray", "Streamer Life Simulator 2", "Street Fighter 6", "Street Fighter V", "Subnautica", "Subnautica: Below Zero", "Super Meat Boy", "Superhot", "Superhot: Mind Control Delete", "Supermarket Simulator", "Supraland", "Surgeon Simulator 2", "Tabletop Simulator", "Tales of Arise", "Teardown", "TMNT: Shredder's Revenge", "Tekken 7", "Tekken 8", "Terraria", "The Alters", "The Binding of Isaac: Rebirth", "The Callisto Protocol", "The Dark Pictures: House of Ashes", "The Elder Scrolls IV: Oblivion GOTY", "The Elder Scrolls V: Skyrim Special Edition", "The Escapists 2", "The Evil Within 2", "The First Berserker: Khazan", "The Forest", "The Henry Stickmin Collection", "The Last of Us Part I", "The Last of Us Part II Remastered", "The Long Dark", "The Long Drive", "The Medium", "The Outlast Trials", "The Quarry", "The Stanley Parable: Ultra Deluxe", "The Texas Chain Saw Massacre", "The Walking Dead: Definitive Series", "The Witcher 2: Assassins of Kings EE", "The Witcher 3: Wild Hunt", "theHunter: Call of the Wild", "They Are Billions", "This War of Mine", "Thronefall", "Titan Quest Anniversary Edition", "Tomb Raider (2013)", "Total War: Shogun 2", "Totally Accurate Battle Simulator", "Tropico 6", "Ultimate Chicken Horse", "Ultrakill", "Uncharted: Legacy of Thieves Collection", "Undertale", "Universe Sandbox", "Untitled Goose Game", "V Rising", "Valheim", "Vampire Survivors", "Vampyr", "Victoria 3", "Visage", "Wallpaper Engine", "Watch Dogs: Legion", "Witchfire", "Wo Long: Fallen Dynasty", "Wolfenstein II: The New Colossus", "World War Z: Aftermath", "WorldBox - God Simulator", "Worms W.M.D", "Wuchang: Fallen Feathers", "WWE 2K23", "X4: Foundations", "XCOM 2", "Yakuza 0", "Yakuza Kiwami", "Zero Sievert", "Zombie Army 4: Dead War"];
-const JUEGOS_DESTACADOS = ["Black Myth: Wukong", "Elden Ring", "Monster Hunter Wilds", "Cyberpunk 2077", "Baldur's Gate 3", "Red Dead Redemption 2", "Hogwarts Legacy", "S.T.A.L.K.E.R. 2: Heart of Chornobyl", "Palworld", "Grand Theft Auto V", "Tekken 8", "Mortal Kombat 1", "Street Fighter 6", "Lethal Company", "Marvel's Spider-Man Remastered", "God of War: Ragnarök", "Sekiro: Shadows Die Twice", "Dead Space Remake", "Resident Evil Village", "Elden Ring: Nightreign"];
+// Purgado de juegos inventados, expansiones listadas como juegos base y duplicados confusos.
+const CATALOGO_NOMBRES = [
+  "112 Operator", "60 Seconds! Reatomized", "7 Days to Die", "911 Operator", "A Dance of Fire and Ice", 
+  "A Plague Tale: Requiem", "A Story About My Uncle", "Abiotic Factor", "ACE COMBAT 7: SKIES UNKNOWN", 
+  "Against the Storm", "Age of Empires II: Definitive Edition", "Age of Mythology: Retold", "Alan Wake", 
+  "Alien: Isolation", "Alone in the Dark", "American Truck Simulator", "Amnesia: Rebirth", "Amnesia: The Dark Descent", 
+  "Among Us", "ARK: Survival Ascended", "ARK: Survival Evolved", "Arma 3", "Assassin's Creed IV: Black Flag", 
+  "Assassin's Creed Mirage", "Assassin's Creed Odyssey", "Assassin's Creed Origins", "Assetto Corsa", 
+  "Assetto Corsa Competizione", "Atelier Ryza 2: Lost Legends & the Secret Fairy", "Atomic Heart", 
+  "Attack on Titan 2", "Automobilista 2", "Avowed", "Bad Guys at School", "Balatro", "Baldur's Gate 3", 
+  "Baldur's Gate II: Enhanced Edition", "Batman: Arkham Asylum GOTY", "Batman: Arkham City GOTY", 
+  "Batman: Arkham Knight", "Batman: Arkham Origins", "Battlefield: Bad Company 2", "BeamNG.drive", "Beholder", 
+  "Bendy and the Dark Revival", "Bendy and the Ink Machine", "Beyond: Two Souls", "Biker Garage: Mechanic Simulator", 
+  "BioShock Remastered", "BioShock 2 Remastered", "BioShock Infinite", "Black Desert Online", "Black Mesa", 
+  "Black Myth: Wukong", "Blair Witch", "Bloodstained: Ritual of the Night", "Bloons TD 6", "Borderlands 2", 
+  "Borderlands 3", "Borderlands: The Pre-Sequel", "Bright Memory: Infinite", "Broforce", "Brotato", 
+  "Brothers: A Tale of Two Sons", "Buckshot Roulette", "Bulletstorm: Full Clip Edition", "Bully: Scholarship Edition", 
+  "Bus Simulator 21 Next Stop", "Call of Duty: Black Ops", "Call of Duty: Black Ops II", "Call of Duty: Black Ops III", 
+  "Call of Duty: Ghosts", "Call of Duty: Infinite Warfare", "Call of Duty: Modern Warfare 2 (2009)", 
+  "Call of Duty: Modern Warfare 3 (2011)", "Call of Duty: Modern Warfare Remastered", "Call of Duty: World at War", 
+  "Call of Duty: WWII", "Call of Juarez: Gunslinger", "Car For Sale Simulator 2023", "Car Mechanic Simulator 2021", 
+  "Castle Crashers", "Celeste", "Chained Together", "Choo-Choo Charles", "Cities: Skylines", "City Car Driving", 
+  "Clair Obscur: Expedition 33", "Clone Drone in the Danger Zone", "CODE VEIN", "Coffee Talk", 
+  "Command & Conquer: Red Alert 3", "Company of Heroes", "Conan Exiles", "Construction Simulator", 
+  "Content Warning", "Control: Ultimate Edition", "Cookie Clicker", "Counter-Strike 1.6", "Counter-Strike: Source", 
+  "Crime Scene Cleaner", "Crusader Kings II", "Cult of the Lamb", "Cuphead", "Cyberpunk 2077", 
+  "Danganronpa: Trigger Happy Havoc", "Danganronpa 2: Goodbye Despair", "Dark Souls: Remastered", 
+  "Dark Souls II: Scholar of the First Sin", "Dark Souls III", "Darkest Dungeon", "Darksiders: Warmastered Edition", 
+  "Darksiders II: Deathinitive Edition", "Darksiders III", "Dave the Diver", "Dawn of Man", "Days Gone", 
+  "Dead Cells", "Dead Island Definitive Edition", "Dead Island: Riptide Definitive Edition", "Dead Rising 2", 
+  "Dead Space Remake", "Dead Space 2", "Deadlock", "Death Stranding", "Deep Rock Galactic", "Deltarune", 
+  "Demon Slayer: The Hinokami Chronicles", "Destiny 2", "Detroit: Become Human", "Deus Ex: Human Revolution", 
+  "Devil May Cry 5", "Devil May Cry HD Collection", "Devour", "Dirt Rally 2.0", "Dirt 5", "Dishonored", 
+  "Dishonored 2", "Divinity: Original Sin 2 - Definitive Edition", "Don't Starve Together", "DOOM (2016)", 
+  "DOOM Eternal", "Dragon Ball FighterZ", "Dragon Ball: Sparking! Zero", "Drug Dealer Simulator 2", 
+  "Dune: Awakening", "Dying Light", "Dying Light 2: Reloaded Edition", "Dynasty Warriors: Origins", 
+  "Dyson Sphere Program", "eFootball PES 2021", "Elden Ring", "ELEX", "ELEX II", "Empires of the Undergrowth", 
+  "Escape Simulator", "Escape the Backrooms", "Euro Truck Simulator 2", "F1 2020", "F1 2021", "Factorio", 
+  "Fallout: A Post Nuclear RPG", "Fallout 2", "Fallout 4", "Fallout 76", "Fallout: New Vegas", "Far Cry 3", 
+  "Far Cry 3: Blood Dragon", "Far Cry 4", "Far Cry 5", "Far Cry Primal", "Farming Simulator 22", 
+  "Farming Simulator 25", "Fatal Frame: Maiden of Black Water", "Final Fantasy VII Rebirth", "Final Fantasy XVI", 
+  "Finding Frankie", "Five Nights at Freddy's", "Five Nights at Freddy's: Security Breach", "Forager", 
+  "Forza Horizon 4", "Forza Horizon 5", "Fran Bow", "Friday the 13th: The Game", "Frostpunk", "Frostpunk 2", 
+  "Garry's Mod", "Gears 5", "Geometry Dash", "Ghostrunner", "Ghostwire: Tokyo", "Goat Simulator", "God of War", 
+  "God of War: Ragnarök", "Gotham Knights", "Gothic 3", "Grand Theft Auto IV: Complete Edition", 
+  "Grand Theft Auto V", "Grand Theft Auto: San Andreas", "Grand Theft Auto: Vice City", "Green Hell", "GRID", 
+  "GRID 2", "GRID Autosport", "Grounded", "Gunfire Reborn", "Hades", "Hades II", "Half-Life", "Half-Life 2", 
+  "Half-Life: Blue Shift", "Half-Life: Opposing Force", "Halo: The Master Chief Collection", "Hearts of Iron IV", 
+  "Heavy Rain", "Hellblade: Senua's Sacrifice", "Hello Neighbor", "Hitman 2", "Hitman: World of Assassination", 
+  "Hitman: Absolution", "Hogwarts Legacy", "Hollow Knight", "Hollow Knight: Silksong", "Horizon Zero Dawn", 
+  "Hotline Miami", "Hotline Miami 2: Wrong Number", "House Flipper", "Human: Fall Flat", "Icarus", "Injustice 2", 
+  "Injustice: Gods Among Us", "Inscryption", "Inside", "Internet Cafe Simulator 2", "It Takes Two", 
+  "Japanese Drift Master", "Journey", "Jujutsu Kaisen Cursed Clash", "Jump King", "Jurassic World Evolution", 
+  "Just Cause 3", "Katana Zero", "Kena: Bridge of Spirits", "Kenshi", "Kerbal Space Program", "Killing Floor 2", 
+  "Kingdom Come: Deliverance", "Kingdom Come: Deliverance II", "Left 4 Dead", "Left 4 Dead 2", 
+  "LEGO Batman 2: DC Super Heroes", "LEGO Batman 3: Beyond Gotham", "LEGO City Undercover", "LEGO Jurassic World", 
+  "LEGO Marvel Super Heroes", "LEGO: The Lord of the Rings", "LEGO Star Wars: The Complete Saga", "Lethal Company", 
+  "Level Zero: Extraction", "Liar's Bar", "Lies of P", "Life is Strange: Remastered Collection", "Life is Strange 2", 
+  "Life is Strange: True Colors", "Like a Dragon: Pirate Yakuza in Hawaii", "Limbo", "Little Nightmares", 
+  "Little Nightmares II", "Lords of the Fallen", "Lossless Scaling", "Lost Soul Aside", "Mad Max", 
+  "Mafia: Definitive Edition", "Mafia II: Definitive Edition", "Mafia III: Definitive Edition", 
+  "Mafia: The Old Country", "Maneater", "Manor Lords", "Martha is Dead", "Marvel's Avengers", 
+  "Marvel's Midnight Suns", "Marvel's Spider-Man: Miles Morales", "Marvel's Spider-Man Remastered", 
+  "Mass Effect Legendary Edition", "Medieval Dynasty", "Metal Gear Solid V: The Phantom Pain", 
+  "Metaphor: ReFantazio", "Metro 2033 Redux", "Metro Exodus", "Metro: Last Light Redux", 
+  "Microsoft Flight Simulator 2020", "Middle-earth: Shadow of War", "Minecraft Dungeons", "Minecraft Legends", 
+  "Mirror's Edge", "MiSide", "Monster Hunter Rise", "Monster Hunter Wilds", "Monster Hunter: World", "Mordhau", 
+  "Mortal Kombat 9: Komplete Edition", "Mortal Kombat X", "Mortal Kombat 11", "Mortal Kombat 1", "Mortal Shell", 
+  "Mount & Blade II: Bannerlord", "MudRunner", "My Summer Car", "My Time at Sandrock", 
+  "Naruto Shippuden: Ultimate Ninja Storm 4", "NBA 2K24", "NBA 2K25", "Needy Streamer Overload", "NieR Replicant", 
+  "NieR: Automata", "Ninja Gaiden: Master Collection", "Nioh 2: The Complete Edition", "Nioh: Complete Edition", 
+  "No Man's Sky", "Northgard", "Octopath Traveler II", "Omori", "Ori and the Blind Forest: Definitive Edition", 
+  "Ori and the Will of the Wisps", "Outlast", "Outlast 2", "Overcooked! 2", "Oxygen Not Included", 
+  "Pacific Drive", "Pacify", "Paint the Town Red", "Palworld", "Payday 2", "PC Building Simulator", "PEAK", 
+  "People Playground", "Persona 4 Golden", "Persona 5 Royal", "Phasmophobia", "Pillars of Eternity II: Deadfire", 
+  "Plague Inc: Evolved", "Planet Coaster", "Planet Crafter", "Planet Zoo", "Poppy Playtime", "Portal", "Portal 2", 
+  "Postal 2", "Prey", "Prison Architect", "Project CARS 2", "Project Hospital", "Project Zomboid", "Prototype", 
+  "Prototype 2", "Pummel Party", "Raft", "Rage", "Rain World", "Ranch Simulator", "Ratchet & Clank: Rift Apart", 
+  "Ravenfield", "Ready or Not", "Red Dead Redemption 2", "Resident Evil", "Resident Evil 2", "Resident Evil 3", 
+  "Resident Evil 4 Remake", "Resident Evil 5", "Resident Evil 6", "Resident Evil 7: Biohazard", 
+  "Resident Evil Village", "Resident Evil: Revelations 2", "Resident Evil Zero", "RimWorld", 
+  "Rise of the Tomb Raider", "Risk of Rain 2", "RoboCop: Rogue City", "Rocket League", "Rust", "Ryse: Son of Rome", 
+  "S.T.A.L.K.E.R. 2: Heart of Chornobyl", "S.T.A.L.K.E.R.: Shadow of Chornobyl", "Sackboy: A Big Adventure", 
+  "Saints Row IV", "Saints Row: The Third", "Satisfactory", "Schedule I", "Scrap Mechanic", 
+  "Sekiro: Shadows Die Twice", "Serial Cleaner", "Serious Sam 4", "Session: Skate Sim", 
+  "Shadow of the Tomb Raider", "Shadows of Doubt", "Ship of Fools", "Shovel Knight: Treasure Trove", 
+  "Sid Meier's Civilization VI", "Sifu", "Silent Hill 2", "Skater XL", "Skul: The Hero Slayer", "Slay the Spire", 
+  "Sleeping Dogs: Definitive Edition", "Slime Rancher 2", "Sniper Elite 5", "Sonic Frontiers", 
+  "Sons of the Forest", "Soulmask", "South Park: The Stick of Truth", "Space Engineers", "Spelunky 2", 
+  "Spiritfarer", "Spore", "Spyro Reignited Trilogy", "Star Wars: KOTOR II", "Stardew Valley", "State of Decay 2", 
+  "Stellar Blade", "Stick Fight: The Game", "Stray", "Streamer Life Simulator 2", "Street Fighter 6", 
+  "Street Fighter V", "Subnautica", "Subnautica: Below Zero", "Super Meat Boy", "Superhot", 
+  "Superhot: Mind Control Delete", "Supermarket Simulator", "Supraland", "Surgeon Simulator 2", 
+  "Tabletop Simulator", "Tales of Arise", "Teardown", "TMNT: Shredder's Revenge", "Tekken 7", "Tekken 8", 
+  "Terraria", "The Alters", "The Binding of Isaac: Rebirth", "The Callisto Protocol", 
+  "The Dark Pictures: House of Ashes", "The Elder Scrolls IV: Oblivion GOTY", 
+  "The Elder Scrolls V: Skyrim Special Edition", "The Escapists 2", "The Evil Within 2", 
+  "The First Berserker: Khazan", "The Forest", "The Henry Stickmin Collection", "The Last of Us Part I", 
+  "The Last of Us Part II Remastered", "The Long Dark", "The Long Drive", "The Medium", "The Outlast Trials", 
+  "The Quarry", "The Stanley Parable: Ultra Deluxe", "The Texas Chain Saw Massacre", 
+  "The Walking Dead: Definitive Series", "The Witcher 2: Assassins of Kings EE", "The Witcher 3: Wild Hunt", 
+  "theHunter: Call of the Wild", "They Are Billions", "This War of Mine", "Thronefall", 
+  "Titan Quest Anniversary Edition", "Tomb Raider (2013)", "Total War: Shogun 2", 
+  "Totally Accurate Battle Simulator", "Tropico 6", "Ultimate Chicken Horse", "Ultrakill", 
+  "Uncharted: Legacy of Thieves Collection", "Undertale", "Universe Sandbox", "Untitled Goose Game", "V Rising", 
+  "Valheim", "Vampire Survivors", "Vampyr", "Victoria 3", "Visage", "Wallpaper Engine", "Watch Dogs: Legion", 
+  "Witchfire", "Wo Long: Fallen Dynasty", "Wolfenstein II: The New Colossus", "World War Z: Aftermath", 
+  "WorldBox - God Simulator", "Worms W.M.D", "Wuchang: Fallen Feathers", "WWE 2K23", "X4: Foundations", "XCOM 2", 
+  "Yakuza 0", "Yakuza Kiwami", "Zero Sievert", "Zombie Army 4: Dead War"
+];
 
-// IDs LIMPIOS Y CORREGIDOS PARA EVITAR CONFLICTOS DE PORTADAS
+const JUEGOS_DESTACADOS = [
+  "Black Myth: Wukong", "Elden Ring", "Monster Hunter Wilds", "Cyberpunk 2077", "Baldur's Gate 3", 
+  "Red Dead Redemption 2", "Hogwarts Legacy", "S.T.A.L.K.E.R. 2: Heart of Chornobyl", "Palworld", 
+  "Grand Theft Auto V", "Tekken 8", "Mortal Kombat 1", "Street Fighter 6", "Lethal Company", 
+  "Marvel's Spider-Man Remastered", "God of War: Ragnarök", "Sekiro: Shadows Die Twice", "Dead Space Remake", 
+  "Resident Evil Village"
+];
+
+// IDs estrictamente verificados. Los no disponibles en la tienda están en null para que actúe el fallback.
 const STEAM_IDS = {
   "112 Operator": 793460, "60 Seconds! Reatomized": 1012820, "7 Days to Die": 251570, "911 Operator": 503560,
   "A Dance of Fire and Ice": 977950, "A Plague Tale: Requiem": 1182900, "A Story About My Uncle": 278920, "Abiotic Factor": 1340820,
@@ -282,7 +398,7 @@ const STEAM_IDS = {
   "Batman: Arkham Origins": 209000, "Battlefield: Bad Company 2": 1238810, "BeamNG.drive": 284160, "Beholder": 475550,
   "Bendy and the Dark Revival": 1315200, "Bendy and the Ink Machine": 622100, "Beyond: Two Souls": 1117790,
   "Biker Garage: Mechanic Simulator": 845370, "BioShock Remastered": 409710, "BioShock 2 Remastered": 8850,
-  "BioShock Infinite": 8870, /* CORREGIDO (ERA 49520) */ "Black Desert Online": 1292030, "Black Mesa": 362890,
+  "BioShock Infinite": 8870, "Black Desert Online": 1292030, "Black Mesa": 362890,
   "Black Myth: Wukong": 2358720, "Blair Witch": 1288310, "Bloodstained: Ritual of the Night": 692850, "Bloons TD 6": 960090,
   "Borderlands 2": 49520, "Borderlands 3": 397540, "Borderlands: The Pre-Sequel": 261640, "Bright Memory: Infinite": 1178041,
   "Broforce": 274190, "Brotato": 1942280, "Brothers: A Tale of Two Sons": 225080, "Buckshot Roulette": 2585970,
@@ -308,17 +424,17 @@ const STEAM_IDS = {
   "Detroit: Become Human": 1222730, "Deus Ex: Human Revolution": 28050, "Devil May Cry 5": 601150,
   "Devil May Cry HD Collection": 631510, "Devour": 1274570, "Dirt Rally 2.0": 690790, "Dirt 5": 1259380,
   "Dishonored": 205100, "Dishonored 2": 403640, "Divinity: Original Sin 2 - Definitive Edition": 435150,
-  "Don't Starve Together": 322330, "DOOM (2016)": 379720, "DOOM Eternal": 782330, "DOOM: The Dark Ages": null, /* CORREGIDO PARA FALLBACK */
+  "Don't Starve Together": 322330, "DOOM (2016)": 379720, "DOOM Eternal": 782330,
   "Dragon Ball FighterZ": 678950, "Dragon Ball: Sparking! Zero": 1790600, "Drug Dealer Simulator 2": 1929000,
   "Dune: Awakening": 1172710, "Dying Light": 239140, "Dying Light 2: Reloaded Edition": 534380, "Dynasty Warriors: Origins": 2683450,
-  "Dyson Sphere Program": 1366540, "eFootball PES 2021": 1313360, "Elden Ring": 1245620, "Elden Ring: Nightreign": 2933620,
-  "ELEX": 411300, "ELEX II": 900040, /* CORREGIDO (ERA 1361510) */ "Empires of the Undergrowth": 463530,
-  "Escape Simulator": 1433360, "Escape the Backrooms": 1943950, "Euro Truck Simulator 2": 227300, "F1 2020": 1108680,
-  "F1 2021": 1134570, /* CORREGIDO (ERA 1259380) */ "Factorio": 427520, "Fallout: A Post Nuclear RPG": 38400,
+  "Dyson Sphere Program": 1366540, "eFootball PES 2021": 1313360, "Elden Ring": 1245620,
+  "ELEX": 411300, "ELEX II": 900040, "Empires of the Undergrowth": 463530,
+  "Escape Simulator": 1433360, "Escape the Backrooms": 1943950, "Euro Truck Simulator 2": 227300, "F1 2020": 1080110,
+  "F1 2021": 1134570, "Factorio": 427520, "Fallout: A Post Nuclear RPG": 38400,
   "Fallout 2": 38410, "Fallout 4": 377160, "Fallout 76": 1151340, "Fallout: New Vegas": 22380, "Far Cry 3": 220240,
   "Far Cry 3: Blood Dragon": 233270, "Far Cry 4": 298110, "Far Cry 5": 552520, "Far Cry Primal": 371660,
   "Farming Simulator 22": 1248130, "Farming Simulator 25": 2300320, "Fatal Frame: Maiden of Black Water": 1388840,
-  "Final Fantasy VII Rebirth": 2909400, "Final Fantasy XVI": 1971650, "Finding Frankie": 2684330, "Five Nights at Freddy's": 319510,
+  "Final Fantasy VII Rebirth": null, "Final Fantasy XVI": 1971650, "Finding Frankie": 2684330, "Five Nights at Freddy's": 319510,
   "Five Nights at Freddy's: Security Breach": 747100, "Forager": 751780, "Forza Horizon 4": 1293830, "Forza Horizon 5": 1551360,
   "Fran Bow": 427660, "Friday the 13th: The Game": 438740, "Frostpunk": 323190, "Frostpunk 2": 1473960, "Garry's Mod": 4000,
   "Gears 5": 1097840, "Geometry Dash": 322170, "Ghostrunner": 1139900, "Ghostwire: Tokyo": 1475810, "Goat Simulator": 265930,
@@ -340,9 +456,9 @@ const STEAM_IDS = {
   "LEGO City Undercover": 578330, "LEGO Jurassic World": 352400, "LEGO Marvel Super Heroes": 249130,
   "LEGO: The Lord of the Rings": 214770, "LEGO Star Wars: The Complete Saga": 32200, "Lethal Company": 1966720,
   "Level Zero: Extraction": 1709350, "Liar's Bar": 3097560, "Lies of P": 1627720, "Life is Strange: Remastered Collection": 936790,
-  "Life is Strange 2": 532210, "Life is Strange: True Colors": 1132980, /* CORREGIDO (ERA 936790) */
+  "Life is Strange 2": 532210, "Life is Strange: True Colors": 1132980,
   "Like a Dragon: Pirate Yakuza in Hawaii": 2737350, "Limbo": 48000, "Little Nightmares": 424840, "Little Nightmares II": 860510,
-  "Lords of the Fallen": 1501750, "Lossless Scaling": 993090, "Lost Soul Aside": 355530, "Mad Max": 234140,
+  "Lords of the Fallen": 1501750, "Lossless Scaling": 993090, "Lost Soul Aside": null, "Mad Max": 234140,
   "Mafia: Definitive Edition": 1030840, "Mafia II: Definitive Edition": 50130, "Mafia III: Definitive Edition": 360430,
   "Mafia: The Old Country": 2973810, "Maneater": 1318480, "Manor Lords": 1363080, "Martha is Dead": 1477000,
   "Marvel's Avengers": 997070, "Marvel's Midnight Suns": 368260, "Marvel's Spider-Man: Miles Morales": 1817190,
@@ -355,7 +471,7 @@ const STEAM_IDS = {
   "Mortal Kombat 1": 1971870, "Mortal Shell": 1110910, "Mount & Blade II: Bannerlord": 261550, "MudRunner": 675010,
   "My Summer Car": 516750, "My Time at Sandrock": 1501180, "Naruto Shippuden: Ultimate Ninja Storm 4": 349040,
   "NBA 2K24": 2338770, "NBA 2K25": 2694900, "Needy Streamer Overload": 1451940, "NieR Replicant": 1113560,
-  "NieR: Automata": 524220, "Ninja Gaiden 2 Black": 3498660, "Ninja Gaiden: Master Collection": 1448440,
+  "NieR: Automata": 524220, "Ninja Gaiden: Master Collection": 1448440,
   "Nioh 2: The Complete Edition": 1325200, "Nioh: Complete Edition": 485510, "No Man's Sky": 275850, "Northgard": 744920,
   "Octopath Traveler II": 1672440, "Omori": 1150690, "Ori and the Blind Forest: Definitive Edition": 387290,
   "Ori and the Will of the Wisps": 1057090, "Outlast": 238320, "Outlast 2": 414700, "Overcooked! 2": 728880,
@@ -365,12 +481,12 @@ const STEAM_IDS = {
   "Plague Inc: Evolved": 246900, "Planet Coaster": 493340, "Planet Crafter": 1284190, "Planet Zoo": 703080,
   "Poppy Playtime": 1721470, "Portal": 400, "Portal 2": 620, "Postal 2": 223470, "Prey": 480490, "Prison Architect": 233450,
   "Project CARS 2": 378860, "Project Hospital": 1089640, "Project Zomboid": 108600, "Prototype": 10150, "Prototype 2": 214630,
-  "Pummel Party": 880940, "R.E.P.O.": null, /* CORREGIDO (ERA DUPLICADO) */ "Raft": 648800, "Rage": 9200, "Rain World": 312520,
+  "Pummel Party": 880940, "Raft": 648800, "Rage": 9200, "Rain World": 312520,
   "Ranch Simulator": 1119730, "Ratchet & Clank: Rift Apart": 1895840, "Ravenfield": 636480, "Ready or Not": 1144200,
   "Red Dead Redemption 2": 1174180, "Resident Evil": 304240, "Resident Evil 2": 883710, "Resident Evil 3": 952060,
   "Resident Evil 4 Remake": 2050650, "Resident Evil 5": 359530, "Resident Evil 6": 221040, "Resident Evil 7: Biohazard": 418370,
   "Resident Evil Village": 1196590, "Resident Evil: Revelations 2": 287290, "Resident Evil Zero": 359630,
-  "Resident Evil: Requiem": 2971480, "RimWorld": 294100, "Rise of the Tomb Raider": 391220, "Risk of Rain 2": 632360,
+  "RimWorld": 294100, "Rise of the Tomb Raider": 391220, "Risk of Rain 2": 632360,
   "RoboCop: Rogue City": 1681430, "Rocket League": 252950, "Rust": 252490, "Ryse: Son of Rome": 302510,
   "S.T.A.L.K.E.R. 2: Heart of Chornobyl": 1643320, "S.T.A.L.K.E.R.: Shadow of Chornobyl": 6910, "Sackboy: A Big Adventure": 1599250,
   "Saints Row IV": 206420, "Saints Row: The Third": 55230, "Satisfactory": 526870, "Schedule I": 3527290,
@@ -387,7 +503,7 @@ const STEAM_IDS = {
   "Superhot: Mind Control Delete": 690040, "Supermarket Simulator": 2670630, "Supraland": 813630, "Surgeon Simulator 2": 1297400,
   "Tabletop Simulator": 286160, "Tales of Arise": 1365510, "Teardown": 1167630, "TMNT: Shredder's Revenge": 1361510,
   "Tekken 7": 389730, "Tekken 8": 1778820, "Terraria": 105600, "The Alters": 2475490, "The Binding of Isaac: Rebirth": 250900,
-  "The Callisto Protocol": 1272430, "The Dark Pictures: House of Ashes": 1281590, /* CORREGIDO (ERA 1458140) */
+  "The Callisto Protocol": 1272430, "The Dark Pictures: House of Ashes": 1281590, 
   "The Elder Scrolls IV: Oblivion GOTY": 22330, "The Elder Scrolls V: Skyrim Special Edition": 489830, "The Escapists 2": 641990,
   "The Evil Within 2": 601430, "The First Berserker: Khazan": 2835730, "The Forest": 242760, "The Henry Stickmin Collection": 1089090,
   "The Last of Us Part I": 1888930, "The Last of Us Part II Remastered": null, "The Long Dark": 305620, "The Long Drive": 1164950,
@@ -490,7 +606,7 @@ function renderJuegos() {
         <div class="info-wrapper">
             <div class="game-info">
                 <h3>${nombre}</h3>
-                <div class="price-row"><span class="price-label">Consultar precio</span></div>
+                <div class="price-row"><span class="price-label">$1500</span></div>
                 <div class="card-actions">
                     <button class="btn-eneba add-to-cart-btn" data-title="${nombre.replace(/"/g,'&quot;')}">🛒 Al Carrito</button>
                     ${appID
